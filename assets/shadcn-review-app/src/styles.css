@@ -1,0 +1,2195 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Inter Variable', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * .6);
+  --radius-md: calc(var(--radius) * .8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.488 0.243 264.376);
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.97 0.001 106.424);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.97 0.001 106.424);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --radius: 0.625rem;
+  --primary-action: var(--primary);
+  --primary-action-hover: color-mix(in oklch, var(--primary), black 12%);
+  --primary-action-pressed: color-mix(in oklch, var(--primary), black 20%);
+  --on-primary-action: var(--primary-foreground);
+  --workbench: color-mix(in oklch, var(--background), var(--foreground) 4%);
+  --panel-border: var(--border);
+  --issue: #dc4338;
+  font-family: "Inter Variable", "PingFang SC", sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  --chart-1: oklch(0.869 0.005 56.366);
+  --chart-2: oklch(0.553 0.013 58.071);
+  --chart-3: oklch(0.444 0.011 73.639);
+  --chart-4: oklch(0.374 0.01 67.558);
+  --chart-5: oklch(0.268 0.007 34.298);
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+  --sidebar-accent: oklch(0.97 0.001 106.424);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.709 0.01 56.259);
+}
+
+.dark {
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.985 0.001 106.423);
+  --card: oklch(0.216 0.006 56.043);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: oklch(0.424 0.199 265.638);
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: oklch(0.709 0.01 56.259);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.553 0.013 58.071);
+  --chart-1: oklch(0.869 0.005 56.366);
+  --chart-2: oklch(0.553 0.013 58.071);
+  --chart-3: oklch(0.444 0.011 73.639);
+  --chart-4: oklch(0.374 0.01 67.558);
+  --chart-5: oklch(0.268 0.007 34.298);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.623 0.214 259.815);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
+  --workbench: color-mix(in oklch, var(--background), var(--foreground) 4%);
+  --panel-border: var(--border);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; box-sizing: border-box; }
+  html { @apply font-sans; }
+  body { @apply bg-background text-foreground; margin: 0; min-width: 320px; overflow: hidden; }
+  button, input, textarea { font: inherit; }
+}
+.source-scroll, .canvas-stage, .issue-list, body, textarea { scrollbar-width: thin; scrollbar-color: color-mix(in oklch, var(--muted-foreground) 48%, transparent) transparent; }
+.source-scroll::-webkit-scrollbar, .canvas-stage::-webkit-scrollbar, .issue-list::-webkit-scrollbar, body::-webkit-scrollbar, textarea::-webkit-scrollbar { width: 5px; height: 5px; }
+.source-scroll::-webkit-scrollbar-track, .canvas-stage::-webkit-scrollbar-track, .issue-list::-webkit-scrollbar-track, body::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track { background: transparent; }
+.source-scroll::-webkit-scrollbar-thumb, .canvas-stage::-webkit-scrollbar-thumb, .issue-list::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in oklch, var(--muted-foreground) 48%, transparent); }
+.source-scroll::-webkit-scrollbar-thumb:hover, .canvas-stage::-webkit-scrollbar-thumb:hover, .issue-list::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover, textarea::-webkit-scrollbar-thumb:hover { background: color-mix(in oklch, var(--muted-foreground) 72%, transparent); }
+.source-scroll::-webkit-scrollbar-corner, .canvas-stage::-webkit-scrollbar-corner, .issue-list::-webkit-scrollbar-corner, body::-webkit-scrollbar-corner, textarea::-webkit-scrollbar-corner { background: transparent; }
+.button { cursor: pointer; }
+.button:active { transform: scale(.98); }
+.button--primary { font-weight: 700; }
+.card__title { margin: 0; font-weight: 700; }
+.card__description { margin: 0; }
+.chip { font-size: 10px; font-weight: 650; line-height: 1.2; }
+.checkbox { display: inline-flex; align-items: center; gap: 6px; margin: 0; color: var(--muted-foreground); font-size: 10px; cursor: pointer; }
+.tabs { min-width: 0; }
+.tabs__list { position: relative; display: flex; gap: 2px; }
+.tabs__tab { min-height: 30px; cursor: pointer; }
+.tabs__tab[data-active] { color: var(--primary); font-weight: 650; }
+.tabs__tab[disabled] { display: none; }
+.textfield { display: flex; flex-direction: column; }
+.label { color: var(--muted-foreground); }
+.app-shell { height: 100svh; background: var(--background); color: var(--foreground); }
+.topbar { height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border-bottom: 1px solid var(--panel-border); }
+.brand, .top-actions, .result-bar > div, .metrics { display: flex; align-items: center; }
+.brand { min-width: 0; gap: 9px; }
+.brand > strong { flex: 0 0 auto; font-size: 14px; white-space: nowrap; }
+.brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 8px; background: #69d657; color: white; font-size: 12px; font-weight: 800; }
+.crumb, .top-actions { color: var(--muted-foreground); font-size: 12px; }
+.top-actions { gap: 9px; }
+.editable-meta { display: inline-flex; min-width: 0; align-items: center; gap: 3px; color: var(--foreground); }
+.meta-value { min-width: 0; overflow: hidden; color: var(--foreground); font-weight: 700; line-height: 30px; text-overflow: ellipsis; white-space: nowrap; }
+.project-meta { max-width: min(34vw, 360px); }
+.project-name-value { max-width: min(30vw, 320px); font-size: 14px; }
+.designer-name-value { max-width: 112px; font-size: 12px; font-weight: 650; }
+.meta-edit-button { display: inline-grid; flex: 0 0 12px; width: 12px; height: 12px; place-items: center; border: 0; border-radius: 3px; padding: 0; background: transparent; color: var(--muted-foreground); cursor: pointer; }
+.meta-edit-button:hover { background: var(--accent); color: var(--accent-foreground); }
+.meta-edit-button:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 24%, transparent); outline-offset: 1px; }
+.meta-edit-button svg { width: 12px; height: 12px; }
+.project-name-input, .designer-name-input { border: 1px solid var(--input); border-radius: var(--radius-sm); background: var(--background); color: var(--foreground); outline: none; transition: border-color .15s, background .15s, box-shadow .15s; }
+.project-name-input { width: clamp(130px, 24vw, 340px); min-height: 30px; padding: 4px 6px; font-size: 14px; font-weight: 700; }
+.project-name-input:hover, .designer-name-input:hover { border-color: var(--ring); background: var(--accent); }
+.project-name-input:focus, .designer-name-input:focus { border-color: var(--ring); background: var(--background); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 30%, transparent); }
+.designer-field { display: inline-flex; align-items: center; gap: 3px; color: var(--foreground); white-space: nowrap; }
+.designer-label { color: var(--muted-foreground); }
+.designer-name-input { width: 92px; min-height: 28px; padding: 3px 5px; font-size: 12px; font-weight: 650; }
+.designer-name-input::placeholder { color: var(--muted-foreground); opacity: 1; }
+.editor-grid { position: relative; height: calc(100svh - 56px); min-height: 0; overflow: hidden; }
+.source-rail, .issue-rail { display: flex; flex-direction: column; min-height: 0; }
+.panel-title { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 13px; border-bottom: 1px solid var(--panel-border); font-size: 13px; font-weight: 700; }
+.panel-title > span { color: var(--muted-foreground); font-size: 10px; font-weight: 500; }
+.source-scroll { flex: 1; min-height: 0; overflow: auto; }
+.source-card { border-radius: 0; border: 0; border-bottom: 1px solid var(--panel-border); padding: 12px; background: var(--card); color: var(--card-foreground); }
+.source-card.is-paste-target { background: color-mix(in oklab, var(--primary) 3%, var(--card)); }
+.source-header { min-height: 25px; flex-direction: row; align-items: center; justify-content: space-between; padding: 0 0 8px; }
+.source-header .card__title { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.source-header .card__description { font-size: 10px; }
+.source-header-meta { display: flex; align-items: center; gap: 6px; }
+.paste-target-badge { padding: 2px 5px; border: 1px solid var(--border); border-radius: 999px; background: var(--secondary); color: var(--secondary-foreground); font-size: 8px; font-weight: 700; white-space: nowrap; }
+.source-index { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 999px; background: var(--foreground); color: var(--background); font-size: 10px; }
+.source-content { padding: 0; gap: 8px; }
+.upload-shell { position: relative; }
+.upload-trigger { position: relative; width: 100%; height: 82px; justify-content: flex-start; gap: 10px; padding: 10px 12px; overflow: hidden; border: 1px dashed var(--border); border-radius: var(--radius-md); background: color-mix(in oklch, var(--muted) 68%, var(--card)); color: var(--muted-foreground); text-align: left; }
+.upload-shell.is-active .upload-trigger { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 16%, transparent); }
+.upload-shell.is-dragging .upload-trigger { border-style: solid; border-color: var(--primary); background: color-mix(in oklab, var(--primary) 7%, var(--card)); box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary) 12%, transparent); }
+.upload-trigger svg { width: 24px; flex: 0 0 24px; }
+.upload-trigger > span { display: grid; }
+.upload-trigger strong { color: var(--foreground); font-size: 12px; }
+.upload-trigger small { color: var(--muted-foreground); font-size: 10px; }
+.upload-trigger.has-source { justify-content: center; padding: 0; border-style: solid; }
+.upload-trigger img { width: 100%; height: 100%; object-fit: contain; background: var(--muted); }
+.replace-label { position: absolute; right: 6px; bottom: 6px; display: block; padding: 3px 6px; border-radius: 5px; background: #171719dc; color: white; font-size: 10px; }
+.paste-target-label { position: absolute; z-index: 2; left: 6px; bottom: 6px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 5px; background: var(--secondary); color: var(--secondary-foreground); font-size: 8px; font-weight: 700; line-height: 1.3; pointer-events: none; }
+.upload-shell.is-dragging .paste-target-label { border-color: var(--primary); background: var(--primary); color: var(--primary-foreground); }
+.remove-source { position: absolute; z-index: 3; top: 6px; right: 6px; width: 23px; min-width: 23px; height: 23px; min-height: 23px; padding: 0; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in oklch, var(--card) 94%, transparent); color: var(--muted-foreground); box-shadow: 0 2px 8px color-mix(in oklch, var(--foreground) 13%, transparent); font-size: 16px; line-height: 1; }
+.remove-source:hover { border-color: color-mix(in oklch, var(--destructive) 38%, var(--border)); background: color-mix(in oklch, var(--destructive) 8%, var(--card)); color: var(--destructive); }
+.sr-file { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.source-actions { display: grid; gap: 8px; padding: 12px; border-top: 1px solid var(--panel-border); }
+.source-actions > span { color: var(--muted-foreground); font-size: 10px; }
+.review-mode-row { display: flex; align-items: center; justify-content: space-between; min-height: 20px; color: var(--muted-foreground); font-size: 10px; }
+.ai-review-toggle { display: inline-flex; align-items: center; gap: 5px; color: var(--foreground); font-size: 10px; line-height: 1; cursor: pointer; }
+.ai-review-toggle:hover { color: var(--primary); }
+.ai-review-toggle input { width: 13px; height: 13px; margin: 0; accent-color: var(--primary); cursor: pointer; }
+.source-actions > .review-note { color: var(--muted-foreground); font-size: 9px; line-height: 1.4; }
+.codex-connection { display: inline-flex; align-items: center; gap: 5px; width: fit-content; color: var(--muted-foreground); font-size: 9px; }
+.codex-connection::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--muted-foreground); }
+.codex-connection.is-connected { color: #347044; }
+.codex-connection.is-connected::before { background: #51ac65; box-shadow: 0 0 0 3px #e9f7ec; }
+.codex-connection.is-checking::before { background: #d3a23a; }
+.compact-tabs-container { padding: 0; }
+.compact-tabs { min-height: 31px; padding: 2px; border-radius: 8px; background: var(--muted); }
+.compact-tabs .tabs__tab { min-height: 27px; padding: 4px 8px; font-size: 11px; }
+.sr-panel { display: none; }
+.figma-form { display: grid; gap: 7px; }
+.figma-form .textfield { gap: 2px; }
+.figma-form .label, .figma-form [data-slot="description"], .figma-form [data-slot="error-message"] { font-size: 10px; }
+.figma-form .input { min-height: 32px; font-size: 11px; }
+.token-label-row { display: flex; align-items: center; gap: 5px; }
+.token-help { position: relative; display: inline-flex; }
+.token-help-trigger { display: grid; place-items: center; width: 16px; height: 16px; padding: 0; border: 1px solid var(--border); border-radius: 999px; background: var(--background); color: var(--muted-foreground); font: 700 10px/1 system-ui; cursor: help; }
+.token-help-trigger:hover, .token-help-trigger:focus-visible { border-color: var(--primary); color: var(--primary); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 13%, transparent); }
+.token-help-popover { position: absolute; z-index: 40; top: calc(100% + 7px); left: -76px; display: grid; width: 244px; gap: 5px; padding: 10px 11px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--popover); color: var(--muted-foreground); box-shadow: 0 12px 30px color-mix(in oklch, var(--foreground) 16%, transparent); font-size: 9px; line-height: 1.5; opacity: 0; visibility: hidden; transform: translateY(-3px); transition: opacity .14s, transform .14s, visibility .14s; pointer-events: none; }
+.token-help-popover::before { content: ""; position: absolute; top: -5px; left: 80px; width: 8px; height: 8px; border-top: 1px solid var(--border); border-left: 1px solid var(--border); background: var(--popover); transform: rotate(45deg); }
+.token-help-popover strong { color: var(--popover-foreground); font-size: 10px; }
+.token-help-popover a { color: var(--primary); font-weight: 650; text-decoration: none; pointer-events: auto; }
+.token-help:hover .token-help-popover, .token-help:focus-within .token-help-popover { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+.figma-success { display: grid; grid-template-columns: 82px 1fr; gap: 9px; align-items: center; padding: 7px; border: 1px solid #bfe5cc; border-radius: 8px; background: #f4fbf6; }
+.figma-thumbnail { position: relative; height: 62px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+.figma-thumbnail img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.figma-thumbnail .remove-source { top: 4px; right: 4px; }
+.figma-success-copy { display: grid; justify-items: start; gap: 5px; min-width: 0; }
+.figma-success-copy > span { color: #667069; font-size: 9px; line-height: 1.35; }
+.canvas-column { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--workbench); }
+.result-bar { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 7px 14px; background: var(--background); border-bottom: 1px solid var(--panel-border); }
+.result-bar > div { gap: 9px; }
+.result-bar strong { font-size: 13px; }
+.metrics { gap: 14px; text-align: right; }
+.metrics span { display: grid; color: var(--muted-foreground); font-size: 9px; }
+.metrics b { color: var(--foreground); font-size: 11px; }
+/* Centred floating dock, clear of both rails. */
+.canvas-tool-dock { position: absolute; z-index: 20; left: 50%; transform: translateX(-50%); bottom: 16px; display: flex; align-items: center; gap: 8px; pointer-events: none; }
+.zoom-controls, .visibility-controls, .view-controls { display: flex; align-items: center; flex: 0 0 auto; border: 1px solid var(--border); border-radius: var(--radius-lg); background: color-mix(in oklch, var(--popover) 95%, transparent); box-shadow: 0 7px 22px color-mix(in oklch, var(--foreground) 14%, transparent); backdrop-filter: blur(10px); pointer-events: auto; }
+.zoom-controls { gap: 2px; padding: 3px; }
+.zoom-controls .button { min-width: 30px; padding-inline: 7px; }
+.zoom-controls .button:nth-child(2) { min-width: 48px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+.visibility-controls { padding: 3px; }
+.visibility-controls .button { min-width: 30px; padding-inline: 7px; }
+.visibility-controls .button[aria-pressed="true"] { color: var(--primary); background: color-mix(in oklch, var(--primary) 9%, var(--popover)); }
+.tool-icon { width: 16px; height: 16px; }
+.opacity-range { flex: 1; width: 100%; height: 18px; margin: 0; padding: 0; appearance: none; -webkit-appearance: none; border: 0; background: transparent; cursor: ew-resize; touch-action: none; }
+.opacity-range::-webkit-slider-runnable-track { height: 5px; border-radius: 999px; background: linear-gradient(to right, var(--primary) 0 var(--opacity), var(--border) var(--opacity) 100%); }
+.opacity-range::-webkit-slider-thumb { width: 16px; height: 16px; margin-top: -5.5px; appearance: none; -webkit-appearance: none; border: 2px solid var(--background); border-radius: 999px; background: var(--primary); box-shadow: 0 1px 4px color-mix(in oklch, var(--foreground) 34%, transparent); }
+.opacity-range::-moz-range-track { height: 5px; border-radius: 999px; background: var(--border); }
+.opacity-range::-moz-range-progress { height: 5px; border-radius: 999px; background: var(--primary); }
+.opacity-range::-moz-range-thumb { width: 14px; height: 14px; border: 2px solid var(--background); border-radius: 999px; background: var(--primary); box-shadow: 0 1px 4px color-mix(in oklch, var(--foreground) 34%, transparent); }
+.opacity-range:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 22%, transparent); outline-offset: 3px; border-radius: 999px; }
+/* Reserve room for the floating rails so content is never parked underneath them. */
+.canvas-stage { flex: 1; min-height: 0; overflow: auto; padding: 28px 424px 84px 324px; touch-action: none; overscroll-behavior: contain; }
+.editor-grid.source-collapsed .canvas-stage { padding-left: 72px; }
+.editor-grid.issue-collapsed .canvas-stage { padding-right: 72px; }
+.canvas-stage.can-pan { cursor: grab; }
+.canvas-stage.is-dragging { cursor: grabbing; user-select: none; }
+.canvas-empty { height: 100%; display: grid; place-content: center; justify-items: center; gap: 10px;
+  color: var(--muted-foreground); text-align: center; pointer-events: none; user-select: none; -webkit-user-select: none; }
+.canvas-empty-line { display: flex; align-items: center; gap: 9px; margin: 0; font-size: 15px; }
+.canvas-empty-line strong { color: var(--foreground); font-weight: 600; }
+.canvas-empty-line.is-secondary { font-size: 13px; }
+.canvas-empty .hint-join { color: var(--muted-foreground); }
+/* The double-click affordance is the primary way in, so it reads as a filled accent chip while the
+   keyboard equivalents stay as quiet keycaps. */
+.hint-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border-radius: 999px;
+  background: color-mix(in oklch, var(--primary-action) 12%, transparent); color: var(--primary-action); font-weight: 600; }
+.canvas-empty kbd { min-width: 15px; padding: 4px 8px; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 7px;
+  background: var(--card); color: var(--foreground); font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1.2; }
+.analysis-wait { width: min(520px, 100%); min-height: 100%; display: grid; place-content: center; gap: 18px; margin: auto; padding: 48px 32px 72px; color: var(--foreground); text-align: center; }
+.analysis-wait-copy { display: grid; justify-items: center; gap: 8px; }
+.analysis-wait-copy strong { max-width: 470px; font-size: clamp(18px, 2vw, 23px); line-height: 1.3; text-wrap: balance; }
+.analysis-wait-copy p { max-width: 430px; margin: 0; color: var(--muted-foreground); font-size: 11px; line-height: 1.6; text-wrap: pretty; }
+.analysis-percentage { color: var(--primary-action); font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
+.zoom-surface { min-width: 1px; margin: 0 auto; }
+.annotated-frame, .overlay-frame { position: relative; width: 100%; margin: auto; line-height: 0; background: var(--card); box-shadow: 0 10px 30px color-mix(in oklch, var(--foreground) 10%, transparent); }
+.annotated-frame > img, .overlay-frame > img {
+  display: block; width: 100%; height: auto;
+  /* The evidence is never a drag source or a selection: a native image drag hands the file to
+     whatever else is listening on the page, which is not something a review canvas should do. */
+  -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.dual-annotation-view { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.annotation-panel { min-width: 0; margin: 0; }
+.annotation-panel > figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; color: var(--foreground); font-size: 11px; font-weight: 700; line-height: 1.4; }
+.annotation-panel > figcaption span { color: var(--muted-foreground); font-size: 9px; font-weight: 500; }
+.evidence-caption { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.evidence-tag { flex: 0 0 auto; padding: 2px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; line-height: 1.5; }
+.evidence-tag.is-design { background: #e7f6ec; color: #17803d; }
+.evidence-tag.is-implementation { background: #e6effe; color: #1d4ed8; }
+/* The filename can be long; it truncates rather than pushing the drag hint off the frame. */
+.annotation-panel > figcaption .evidence-filename { overflow: hidden; color: var(--muted-foreground); font-size: 11px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.annotation-panel > figcaption .evidence-hint { flex: 0 0 auto; }
+.issue-box { position: absolute; z-index: 1; border: 2px solid var(--issue); background: #dc433814; cursor: move; touch-action: none; }
+.issue-box.selected { z-index: 5; border-width: 3px; background: #dc433824; }
+/* AI frequently returns near-identical bounds for a module issue and its content detail, which stacks
+   several large boxes and their number badges on top of each other. Recede the unselected ones so the
+   active box is readable. Every annotation stays red — this is selection emphasis, not inclusion state. */
+.issue-box.muted { opacity: .38; }
+.issue-box.muted:hover, .issue-box.muted:focus-visible { opacity: .85; }
+.overlay-frame .issue-box { cursor: pointer; }
+.issue-box:focus-visible { outline: 3px solid color-mix(in srgb, var(--issue) 28%, transparent); outline-offset: 3px; }
+.issue-box .issue-number { position: absolute; top: -14px; left: -14px; display: grid; place-items: center; width: 27px; height: 27px; border: 2px solid var(--background); border-radius: 999px; background: var(--issue); color: white; font-size: 10px; font-weight: 800; line-height: 1; }
+.issue-box.selected .issue-number { top: -31px; }
+.resize-handle { position: absolute; z-index: 2; width: 12px; height: 12px; padding: 0; border: 2px solid var(--issue); border-radius: 3px; background: var(--background); box-shadow: 0 1px 4px color-mix(in oklch, var(--foreground) 20%, transparent); touch-action: none; }
+.resize-nw { top: -7px; left: -7px; cursor: nwse-resize; }
+.resize-ne { top: -7px; right: -7px; cursor: nesw-resize; }
+.resize-sw { bottom: -7px; left: -7px; cursor: nesw-resize; }
+.resize-se { right: -7px; bottom: -7px; cursor: nwse-resize; }
+.resize-handle:focus-visible { outline: 3px solid color-mix(in srgb, var(--issue) 28%, transparent); outline-offset: 2px; }
+.side-view { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.side-view figure { margin: 0; }
+.side-view figcaption { margin-bottom: 6px; color: var(--muted-foreground); font-size: 11px; }
+.side-view img { display: block; width: 100%; background: var(--card); box-shadow: 0 8px 24px color-mix(in oklch, var(--foreground) 8%, transparent); }
+/* Target the second image directly rather than the last child: annotation markers are rendered
+   after the images, which made `img:last-child` match nothing and dropped the top image back to
+   static flow, stacking the two vertically instead of overlaying them. */
+.overlay-frame > img + img { position: absolute; inset: 0; }
+.issue-rail-header { border-bottom: 1px solid var(--panel-border); }
+.issue-rail-header .panel-title { border-bottom: 0; }
+.issue-rail-header > .tabs { padding: 0 10px; }
+.issue-rail-header .compact-tabs {
+  width: 100%;
+  min-height: 40px;
+  gap: 0;
+  padding: 5px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--muted) 92%, var(--background));
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--border) 36%, transparent);
+}
+.issue-rail-header .tabs__tab {
+  flex: 1;
+  min-height: 30px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 560;
+  box-shadow: none;
+  transition: color .16s ease, background-color .16s ease, box-shadow .16s ease;
+}
+.issue-rail-header .tabs__tab:hover { color: var(--foreground); }
+.issue-rail-header .tabs__tab[data-active] {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 650;
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 9%, transparent), 0 3px 9px color-mix(in oklch, var(--foreground) 5%, transparent);
+}
+.issue-rail-header .tabs__tab:focus-visible {
+  border: 0;
+  outline: 2px solid color-mix(in oklch, var(--ring) 65%, transparent);
+  outline-offset: 1px;
+  box-shadow: none;
+}
+.issue-filter-panel { display: grid; gap: 6px; padding: 0 10px 9px; }
+.type-filter-row { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+.type-filter-row::-webkit-scrollbar { display: none; }
+.issue-filter-chip { flex: 0 0 auto; min-height: 25px; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 4px 8px; background: var(--background); color: var(--muted-foreground); font-size: 9px; line-height: 1; cursor: pointer; }
+.issue-filter-chip span { margin-left: 2px; color: color-mix(in oklch, var(--muted-foreground) 70%, transparent); font-variant-numeric: tabular-nums; }
+.issue-filter-chip:hover { border-color: var(--ring); background: var(--accent); color: var(--accent-foreground); }
+.issue-filter-chip[aria-pressed="true"] { border-color: var(--foreground); background: var(--foreground); color: var(--background); font-weight: 700; }
+.issue-filter-chip[aria-pressed="true"] span { color: color-mix(in oklch, var(--background) 75%, transparent); }
+.severity-p0 { background: #fff0ee; }
+.severity-p0 strong { color: #c5483e; }
+.severity-p1 { background: #fff4d8; }
+.severity-p1 strong { color: #a46a00; }
+.severity-p2 { background: #f0f1f3; }
+.severity-p2 strong { color: #6d7178; }
+.ignored-toolbar-hint { color: var(--muted-foreground); white-space: nowrap; }
+.add-issue-button { border-color: color-mix(in oklab, var(--primary) 28%, var(--border)); color: var(--primary); font-weight: 650; }
+.issue-list { flex: 1; min-height: 120px; overflow: auto; padding: 8px; background: color-mix(in oklch, var(--muted) 68%, var(--background)); }
+.praise-card { display: grid; grid-template-columns: 42px 1fr; gap: 11px; margin-bottom: 8px; padding: 14px; border: 1px solid #9ddbb3; border-radius: 11px; background: radial-gradient(circle at 8% 0%, #dff8e8 0, transparent 32%), linear-gradient(135deg, #f1fbf5, #fbfefa); box-shadow: 0 8px 24px #226d3b12; }
+.praise-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: #d4f2df; box-shadow: inset 0 0 0 1px #bce6ca; font-size: 23px; line-height: 1; }
+.praise-content { display: grid; justify-items: stretch; gap: 8px; min-width: 0; }
+.praise-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.praise-heading strong { color: #1f3a29; font-size: 13px; }
+.praise-content p { margin: 0; color: #647169; font-size: 10px; line-height: 1.5; }
+.praise-editor { width: 100%; min-height: 86px; padding: 9px 10px; border: 1px solid #b7dfc5; border-left: 3px solid #42a965; border-radius: 7px; background: #ffffffd9; color: #294d34; font: 600 11px/1.65 system-ui, sans-serif; resize: vertical; outline: none; }
+.praise-editor:hover { border-color: #8dccaa; border-left-color: #42a965; }
+.praise-editor:focus { border-color: #42a965; box-shadow: 0 0 0 3px #42a96520; }
+.praise-generation-note { min-height: 15px; color: #718077; font-size: 9px; line-height: 1.45; }
+.praise-actions { display: flex; flex-wrap: wrap; gap: 5px; }
+.praise-actions .button { min-height: 29px; padding-inline: 8px; font-size: 10px; }
+.issue-card { padding: 12px; border: 1px solid var(--panel-border); border-left: 3px solid transparent; border-radius: var(--radius-lg); background: var(--card); color: var(--card-foreground); cursor: pointer; transition: border-color .15s, box-shadow .15s, background .15s; }
+.issue-card + .issue-card { margin-top: 8px; }
+.issue-card:hover { border-color: var(--ring); }
+.issue-card.selected { border-left-color: var(--primary); box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 17%, transparent); }
+.issue-card.ignored { border-left-color: var(--muted-foreground); background: color-mix(in oklch, var(--muted) 60%, var(--card)); cursor: default; }
+.issue-card.ignored:hover { border-color: var(--border); border-left-color: var(--muted-foreground); }
+.issue-card.ignored .issue-meta small { color: var(--muted-foreground); font-size: 9px; }
+.issue-card.ignored .region-comparison { filter: saturate(.7); opacity: .86; }
+.restore-button { min-height: 27px; border-color: color-mix(in oklab, var(--primary) 28%, var(--border)); color: var(--primary); }
+.issue-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.issue-meta, .issue-card-actions { display: flex; align-items: center; gap: 5px; }
+.issue-meta > span { color: var(--muted-foreground); font-size: 10px; font-weight: 750; }
+.issue-card-actions { flex: 0 0 auto; gap: 3px; }
+.ignore-button { min-height: 25px; padding: 3px 6px; color: var(--muted-foreground); }
+.ignore-button:hover { color: var(--destructive); background: color-mix(in oklch, var(--destructive) 8%, var(--card)); }
+/* Two lines, then scroll. As a single-line input a long title was cut off mid-sentence at the rail's
+   edge; `height` is expressed in em so it still means exactly two lines at the narrow breakpoint's
+   smaller font. `min-height: 0` overrides the shared Textarea component's min-h-16. */
+.issue-title-input { display: block; width: 100%; margin: 8px -5px 7px; padding: 4px 5px; border: 1px solid transparent; border-radius: var(--radius-sm); background: transparent; color: var(--foreground); font-family: inherit; font-size: 13px; font-weight: 700; line-height: 1.4; outline: none; min-height: 0; height: calc(2.8em + 10px); resize: none; overflow-y: auto; }
+.issue-title-input:hover { border-color: var(--border); background: var(--background); }
+.issue-title-input:focus { border-color: var(--ring); background: var(--background); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 30%, transparent); }
+.region-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+.region-comparison figure { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--muted); }
+.region-comparison figcaption { position: absolute; z-index: 1; top: 4px; left: 4px; padding: 2px 5px; border-radius: 4px; background: #171719cf; color: white; font-size: 8px; line-height: 1.35; }
+.region-crop-shell { display: flex; min-height: 72px; max-height: 190px; align-items: center; justify-content: center; overflow: hidden; background: var(--muted); cursor: zoom-in; }
+.region-crop-shell:focus-visible { outline: 3px solid color-mix(in srgb, var(--issue) 28%, transparent); outline-offset: 2px; }
+
+/* --- Batch review ------------------------------------------------------------------------------ */
+.batch-intake { padding: 10px; border: 1px solid var(--panel-border); border-radius: var(--radius-md); background: var(--card); }
+.batch-intake-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.batch-intake-head strong { font-size: 11px; }
+.batch-intake-head span { color: var(--muted-foreground); font-size: 10px; }
+.batch-intake-actions { display: grid; gap: 6px; }
+.batch-pick { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px; border: 1px dashed var(--panel-border); border-radius: 7px; background: var(--background); color: var(--muted-foreground); cursor: pointer; font-size: 10px; }
+.batch-pick:hover { border-color: var(--primary); color: var(--foreground); }
+.batch-pick input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.batch-pick b { padding: 1px 6px; border-radius: 999px; background: var(--primary); color: #fff; font-size: 10px; }
+.batch-hint { margin: 8px 0 0; color: var(--muted-foreground); font-size: 10px; }
+.batch-hint.pending { padding: 5px 7px; border: 1px solid #fde68a; border-radius: 6px; background: #fffbeb; color: #b45309; }
+.pairing-repick { position: relative; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--background); color: var(--muted-foreground); cursor: pointer; font-size: 11px; }
+.pairing-repick:hover { color: var(--foreground); border-color: var(--primary); }
+.pairing-repick input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.batch-cancel { width: 100%; margin-top: 6px; padding: 5px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--background); color: var(--muted-foreground); cursor: pointer; font-size: 10px; }
+
+.screen-switcher { position: absolute; z-index: 15; top: 14px; left: 50%; transform: translateX(-50%); display: flex; max-width: min(620px, calc(100% - 760px)); gap: 6px; padding: 6px; border: 1px solid var(--panel-border); border-radius: 999px; background: var(--background); box-shadow: 0 8px 24px #10131b14; overflow-x: auto; }
+.editor-grid.source-collapsed.issue-collapsed .screen-switcher { max-width: min(760px, calc(100% - 200px)); }
+.screen-tab { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--panel-border); border-radius: 999px; background: var(--card); color: var(--muted-foreground); cursor: pointer; font-size: 11px; white-space: nowrap; }
+.screen-tab.active { border-color: var(--primary); background: var(--background); color: var(--foreground); font-weight: 600; }
+.screen-tab-id { color: var(--muted-foreground); font-size: 10px; }
+.screen-tab-name { max-width: 128px; overflow: hidden; text-overflow: ellipsis; }
+
+.screen-tab-badge { padding: 0 6px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+.screen-tab-badge.blocking { background: #fee2e2; color: #b91c1c; }
+.screen-tab-badge.clean { background: #dcfce7; color: #15803d; }
+.screen-tab-badge.failed { background: #fee2e2; color: #b91c1c; }
+.screen-error { position: absolute; z-index: 15; top: 62px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border: 1px solid #fecaca; border-radius: 8px; background: #fef2f2; color: #b91c1c; font-size: 11px; }
+
+.pairing-panel { width: min(940px, 100%); }
+.pairing-list { display: grid; gap: 10px; max-height: min(56vh, 520px); overflow: auto; padding-right: 4px; }
+.pairing-columns { display: grid; gap: 14px; grid-template-columns: 1fr 76px 1fr; padding: 0 10px 6px; color: var(--muted-foreground); font-size: 10px; font-weight: 700; }
+.pairing-columns span:nth-child(2) { text-align: center; }
+.pairing-row { display: grid; align-items: center; gap: 8px 14px; grid-template-columns: 1fr 76px 1fr; padding: 10px; border: 1px solid var(--panel-border); border-radius: 10px; background: var(--card); }
+.pairing-row.incomplete { opacity: .62; }
+/* A pair the matcher believes is wrong must look wrong, not merely score lower. */
+.pairing-row.suspect { border-color: #fca5a5; background: #fef2f2; }
+.pairing-row figure { display: flex; min-width: 0; flex-direction: column; gap: 6px; margin: 0; }
+/* Fixed thumb height with contain: a square avatar export and a tall phone screenshot then render at
+   comparable size, so an obvious mismatch is obvious at a glance. */
+.pairing-row img { width: 100%; height: 128px; border: 1px solid var(--border); border-radius: 6px; background: var(--muted); object-fit: contain; }
+.pairing-row figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; overflow: hidden; color: var(--muted-foreground); font-size: 10px; }
+.pairing-file { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pairing-row figcaption small { flex: none; color: #a1a1aa; font-size: 9px; }
+.pairing-reason { grid-column: 1 / -1; margin: 0; padding: 6px 8px; border-radius: 6px; background: #fee2e2; color: #b91c1c; font-size: 10px; }
+.pairing-reason.mid, .pairing-reason.low { background: #fffbeb; color: #b45309; }
+.pairing-summary { margin-top: 4px; font-size: 11px; font-weight: 600; }
+.pairing-summary.warn { color: #b91c1c; }
+.pairing-row select { width: 100%; padding: 3px 5px; border: 1px solid var(--panel-border); border-radius: 5px; background: var(--background); font-size: 10px; }
+.pairing-missing {
+  position: relative; display: grid; place-content: center; justify-items: center; gap: 4px;
+  min-height: 132px; border: 1px dashed var(--border); border-radius: 10px;
+  color: var(--muted-foreground); font-size: 11px; text-align: center; cursor: pointer;
+}
+.pairing-missing:hover { border-color: var(--primary); background: color-mix(in oklch, var(--primary) 5%, transparent); color: var(--foreground); }
+.pairing-missing input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.pairing-missing small { color: var(--muted-foreground); font-size: 9px; }
+.pairing-link { display: grid; place-items: center; }
+.pairing-confidence { padding: 2px 9px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+.pairing-confidence.high { background: #dcfce7; color: #15803d; }
+.pairing-confidence.mid { background: #fef3c7; color: #b45309; }
+.pairing-confidence.low { background: #fef3c7; color: #b45309; }
+.pairing-confidence.bad { background: #fee2e2; color: #b91c1c; }
+.pairing-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; border-top: 1px solid var(--panel-border); color: var(--muted-foreground); font-size: 11px; }
+.pairing-footer div { display: flex; gap: 8px; }
+
+/* Full-size look at one issue's two crops. The card thumbnails are far too small to judge shape,
+   weight, or state, so this is the only place the reviewer can actually confirm a defect. */
+.crop-lightbox { position: fixed; inset: 0; z-index: 9998; display: grid; place-items: center; padding: 24px; background: #10131b99; }
+.crop-lightbox-panel { display: flex; max-width: min(1180px, 100%); max-height: 100%; flex-direction: column; gap: 12px; padding: 16px; border-radius: 14px; background: var(--background); box-shadow: 0 24px 64px #10131b40; }
+.crop-lightbox-panel header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.crop-lightbox-panel header div { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.crop-lightbox-panel header strong { font-size: 12px; }
+.crop-lightbox-panel header span { color: var(--muted-foreground); font-size: 12px; }
+.crop-lightbox-pair { display: grid; min-height: 0; gap: 12px; grid-template-columns: 1fr 1fr; overflow: auto; }
+.crop-lightbox-pair figure { display: flex; min-width: 0; flex-direction: column; gap: 6px; }
+.crop-lightbox-pair figcaption { color: var(--muted-foreground); font-size: 11px; font-weight: 600; }
+/* ExactRegionCrop paints into a <canvas>, not an <img>. */
+.crop-lightbox-pair .region-crop { width: 100%; height: auto; max-height: calc(100vh - 220px); border: 1px solid var(--border); border-radius: 8px; background: var(--muted); object-fit: contain; }
+.region-crop { display: block; width: auto; height: auto; max-width: 100%; max-height: 190px; image-rendering: auto; }
+.issue-facts { display: grid; gap: 6px; }
+.issue-edit-field { display: grid; grid-template-columns: 55px 1fr; gap: 7px; margin: 0; color: var(--muted-foreground); font-size: 10px; line-height: 1.5; }
+.issue-facts b { color: var(--foreground); font-weight: 700; }
+/* font-size must be set here, outside any @layer: the `font: inherit` in @layer base loses to
+   Tailwind's text-sm in @layer utilities, which left this textarea 4px larger than its label. */
+.issue-edit-field textarea { width: 100%; min-height: 45px; padding: 4px 5px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: inherit; font-size: inherit; line-height: 1.5; resize: vertical; outline: none; }
+.issue-edit-field textarea:hover { border-color: var(--border); background: var(--background); }
+.issue-edit-field textarea:focus { border-color: var(--ring); background: var(--background); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 30%, transparent); }
+.issue-facts .fix { margin: 2px -2px 0; padding: 7px 8px; border-left: 2px solid var(--issue); background: color-mix(in oklch, var(--issue) 8%, var(--card)); color: color-mix(in oklch, var(--issue) 68%, var(--foreground)); }
+.issue-facts .fix textarea { color: inherit; }
+.location { display: grid; gap: 2px; margin-top: 8px; color: var(--muted-foreground); font-size: 9px; }
+.manual-ai-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--border); }
+.manual-ai-actions small { margin-right: auto; color: var(--muted-foreground); font-size: 9px; line-height: 1.35; }
+.manual-ai-fill-button { flex: 0 0 auto; min-height: 29px; border-color: color-mix(in oklab, var(--primary) 28%, var(--border)); color: var(--primary); background: color-mix(in oklab, var(--primary) 5%, var(--card)); }
+.manual-ai-fill-button:hover { border-color: var(--primary); background: color-mix(in oklab, var(--primary) 9%, var(--card)); }
+.empty-list { padding: 24px; color: var(--muted-foreground); font-size: 11px; text-align: center; }
+.export-bar { display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 8px; padding: 9px; border-top: 1px solid var(--panel-border); }
+.export-summary { display: grid; gap: 2px; }
+.export-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.export-bar strong { font-size: 11px; }
+.export-bar span { color: var(--muted-foreground); font-size: 9px; }
+
+.global-button-tip { position: fixed; z-index: 9999; max-width: min(260px, calc(100vw - 16px)); padding: 5px 7px; border-radius: 6px; background: #171719ee; color: white; box-shadow: 0 5px 16px #10131b33; font-size: 10px; font-weight: 600; line-height: 1.35; text-align: center; white-space: normal; pointer-events: none; transform: translate(-50%, -100%); animation: global-tip-in .12s ease-out; }
+.global-button-tip.below { transform: translate(-50%, 0); }
+@keyframes global-tip-in { from { opacity: 0; } to { opacity: 1; } }
+
+.dark .figma-success {
+  border-color: color-mix(in oklch, #51ac65 42%, var(--border));
+  background: color-mix(in oklch, #51ac65 9%, var(--card));
+}
+.dark .figma-success-copy > span { color: var(--muted-foreground); }
+.dark .severity-p0 { background: color-mix(in oklch, var(--destructive) 12%, var(--card)); }
+.dark .severity-p1 { background: color-mix(in oklch, #d3a23a 13%, var(--card)); }
+.dark .severity-p2 { background: color-mix(in oklch, var(--muted) 72%, var(--card)); }
+.dark .praise-card {
+  border-color: color-mix(in oklch, #51ac65 46%, var(--border));
+  background: radial-gradient(circle at 8% 0%, color-mix(in oklch, #51ac65 14%, var(--card)) 0, transparent 32%), var(--card);
+}
+.dark .praise-icon { background: color-mix(in oklch, #51ac65 18%, var(--card)); box-shadow: inset 0 0 0 1px color-mix(in oklch, #51ac65 38%, var(--border)); }
+.dark .praise-heading strong, .dark .praise-editor { color: var(--foreground); }
+.dark .praise-content p, .dark .praise-generation-note { color: var(--muted-foreground); }
+.dark .praise-editor { background: color-mix(in oklch, var(--card) 92%, transparent); }
+
+@media (max-width: 1180px) { .editor-grid { grid-template-columns: 248px minmax(0, 1fr) 350px; } .metrics { display: none; } }
+@media (max-width: 820px) { body { overflow: auto; } .app-shell { height: auto; } .editor-grid { display: block; height: auto; } .source-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; } .source-card { border-right: 1px solid var(--panel-border); } .source-actions { grid-template-columns: 1fr 180px; align-items: center; } .canvas-column { min-height: 720px; } .issue-list { max-height: 680px; } }
+@media (max-width: 620px) { .crumb, .top-actions > span, .designer-label { display: none; } .project-meta { max-width: min(36vw, 220px); } .project-name-value { max-width: min(29vw, 180px); } .project-name-input { width: min(36vw, 220px); } .designer-field { padding-left: 4px; } .designer-name-value { max-width: 72px; } .designer-name-input { width: 72px; } .source-scroll { grid-template-columns: 1fr; } .source-actions { grid-template-columns: 1fr; } .result-bar { align-items: flex-start; flex-direction: column; } .canvas-tool-dock { left: 8px; bottom: 8px; } .dual-annotation-view { grid-template-columns: 1fr; } .canvas-stage { padding: 12px 12px 70px; } }
+
+/* Luma / Stone workbench shell ------------------------------------------------ */
+:root {
+  --workspace: oklch(0.974 0.002 67);
+  --panel-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 5%, transparent), 0 8px 24px color-mix(in oklch, var(--foreground) 4%, transparent);
+  --panel-radius: 14px;
+}
+
+body { background: var(--workspace); }
+.app-shell { background: var(--workspace); }
+.topbar {
+  position: relative;
+  z-index: 20;
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklch, var(--background) 94%, transparent);
+  box-shadow: 0 1px 0 color-mix(in oklch, var(--foreground) 2%, transparent);
+  backdrop-filter: blur(14px);
+}
+.brand { gap: 10px; }
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--foreground);
+  color: var(--background);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--background) 12%, transparent);
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+.app-identity { display: grid; flex: 0 0 auto; gap: 1px; }
+.app-identity strong { font-size: 13px; line-height: 1.1; letter-spacing: -.01em; }
+.app-identity small { color: var(--muted-foreground); font-size: 8px; line-height: 1.1; letter-spacing: .02em; }
+.brand-divider { width: 1px; height: 24px; margin: 0 2px; background: var(--border); }
+.project-meta { gap: 6px; }
+.meta-label { color: var(--muted-foreground); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.project-name-value { font-size: 13px; }
+.top-actions { gap: 12px; }
+.workspace-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-size: 9px;
+  font-weight: 650;
+}
+.workspace-status svg { width: 12px; height: 12px; }
+.workspace-status.is-connected { border-color: color-mix(in oklch, #2f9e5b 28%, var(--border)); background: color-mix(in oklch, #2f9e5b 6%, var(--card)); color: #267c49; }
+.workspace-status.is-checking { color: var(--primary); }
+.workspace-status.is-disconnected { color: var(--muted-foreground); }
+/* The designer sits in its own top-bar pill now, so the old inline divider has nothing to divide. */
+.designer-field { padding-left: 0; border-left: 0; }
+
+.editor-grid {
+  grid-template-columns: 284px minmax(0, 1fr) 410px;
+  gap: 12px;
+  height: calc(100svh - 64px);
+  padding: 12px;
+  background: var(--workspace);
+}
+.source-rail, .canvas-column, .issue-rail {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--panel-radius);
+  background: var(--card);
+  box-shadow: var(--panel-shadow);
+}
+.source-rail, .issue-rail { border-inline: 1px solid var(--border); }
+.panel-title {
+  min-height: 64px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.panel-heading { display: flex; min-width: 0; align-items: center; gap: 9px; }
+.panel-heading > span:last-child, .panel-heading > div:last-child { display: grid; min-width: 0; gap: 2px; }
+.panel-heading strong { color: var(--foreground); font-size: 12px; line-height: 1.2; }
+.panel-heading small, .panel-heading .panel-icon {
+  display: grid;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--muted);
+  color: var(--foreground);
+}
+.panel-icon svg { width: 14px; height: 14px; }
+.panel-title > .chip { border-color: transparent; background: var(--secondary); color: var(--secondary-foreground); }
+
+.source-scroll { padding: 10px; background: var(--workspace); }
+.source-card {
+  margin-bottom: 9px;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 3%, transparent);
+}
+.source-card.is-paste-target { background: var(--card); }
+.source-card:last-child { margin-bottom: 0; }
+.source-header { padding-bottom: 9px; }
+.source-header .card__title { font-size: 12px; }
+.source-index { width: 20px; height: 20px; background: var(--foreground); color: var(--background); font-size: 9px; }
+.source-mode-tabs { width: 100%; }
+.source-mode-tabs .tabs__list {
+  width: 100%;
+  padding: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--secondary);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--border) 45%, transparent);
+}
+.source-mode-tabs .tabs__tab {
+  flex: 1;
+  min-height: 32px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  box-shadow: none;
+}
+.source-mode-tabs .tabs__tab:hover { color: var(--foreground); }
+.source-mode-tabs .tabs__tab[data-active] {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 650;
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 10%, transparent), 0 4px 12px color-mix(in oklch, var(--foreground) 4%, transparent);
+}
+.source-mode-tabs .tabs__tab:focus-visible {
+  border: 0;
+  outline: 2px solid color-mix(in oklch, var(--ring) 65%, transparent);
+  outline-offset: 1px;
+}
+.upload-trigger {
+  height: 88px;
+  border-radius: 10px;
+  background: color-mix(in oklch, var(--muted) 78%, var(--card));
+}
+.upload-trigger strong { font-size: 11px; }
+.upload-trigger small { font-size: 9px; }
+.upload-trigger.has-source { background: var(--muted); }
+.source-actions {
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+.source-action-status { display: grid; gap: 3px; }
+.source-action-status > span { color: var(--muted-foreground); font-size: 8px; }
+.review-note { margin: 0; }
+.source-primary-action { min-height: 40px; border-radius: 10px; }
+.source-primary-action svg { width: 15px; height: 15px; }
+
+.canvas-column { display: flex; flex-direction: column; }
+.result-bar {
+  min-height: 70px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.result-summary { display: flex; min-width: 0; align-items: center; gap: 10px; }
+.result-summary > span:nth-child(2) { display: grid; min-width: 0; gap: 2px; }
+.result-summary small { color: var(--muted-foreground); font-size: 8px; font-weight: 550; }
+.result-summary strong { overflow: hidden; font-size: 12px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.metrics { gap: 14px; }
+.metrics > span { min-width: 45px; }
+.metrics strong { font-size: 11px; }
+.metrics small { font-size: 8px; }
+.view-controls { padding: 3px; }
+.view-controls .tabs__list { border: 0; border-radius: 7px; padding: 0; background: transparent; }
+.view-controls .tabs__tab { min-height: 30px; padding-inline: 10px; border-radius: 7px; font-size: 9px; }
+.view-controls .tabs__tab[data-active] { background: var(--primary); color: var(--primary-foreground); box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 8%, transparent); }
+.canvas-stage {
+  flex: 1;
+  min-height: 0;
+  padding: 30px 30px 82px;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--workspace) 92%, white), var(--workspace));
+}
+.canvas-stage::before { content: none; }
+.canvas-tool-dock {
+  left: 18px;
+  bottom: 18px;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in oklch, var(--card) 94%, transparent);
+  box-shadow: 0 8px 28px color-mix(in oklch, var(--foreground) 12%, transparent);
+  backdrop-filter: blur(12px);
+}
+.zoom-controls, .visibility-controls, .view-controls { border-color: var(--border); border-radius: 9px; background: var(--card); }
+.visibility-controls .button,
+.visibility-controls .button[aria-pressed="true"] {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.visibility-controls .button:hover,
+.visibility-controls .button[aria-pressed="true"]:hover {
+  background: color-mix(in oklch, var(--secondary), var(--foreground) 5%);
+  color: var(--secondary-foreground);
+}
+.analysis-wait { border-radius: 16px; border-color: var(--border); background: var(--card); box-shadow: var(--panel-shadow); }
+
+.issue-rail-header { padding: 0; border-bottom: 0; background: var(--card); }
+.issue-rail-header .panel-title { border-bottom: 0; }
+.issue-rail-header > .tabs { padding: 0 12px; }
+.issue-rail-header .tabs__list {
+  width: 100%;
+  padding: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--secondary);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--border) 45%, transparent);
+}
+.issue-rail-header .tabs__tab {
+  flex: 1;
+  min-height: 32px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+.issue-rail-header .tabs__tab[data-active] {
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 10%, transparent), 0 4px 12px color-mix(in oklch, var(--foreground) 4%, transparent);
+}
+.issue-filter-panel { padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--card); }
+.issue-filter-chip { min-height: 27px; border-radius: 8px; background: var(--card); }
+.issue-filter-chip[aria-pressed="true"] { border-color: var(--foreground); background: var(--foreground); color: var(--background); }
+.add-issue-button {
+  border-color: transparent;
+  border-radius: 9px;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-weight: 650;
+}
+.add-issue-button:hover {
+  border-color: transparent;
+  background: color-mix(in oklch, var(--secondary), var(--foreground) 5%);
+  color: var(--secondary-foreground);
+}
+.issue-list { padding: 10px; background: var(--workspace); }
+.issue-card {
+  padding: 13px;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 3%, transparent);
+}
+.issue-card + .issue-card { margin-top: 10px; }
+.issue-card:hover { border-color: color-mix(in oklab, var(--primary) 35%, var(--border)); }
+.issue-card.selected { border-left-color: var(--primary); box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 15%, transparent), 0 8px 22px color-mix(in oklch, var(--foreground) 5%, transparent); }
+.issue-title-input { font-size: 12px; }
+.region-comparison figure { border-radius: 9px; }
+.issue-facts .fix { border-radius: 0 8px 8px 0; }
+.export-bar { min-height: 58px; padding: 10px 12px; background: var(--card); }
+.export-actions .button { border-radius: 9px; }
+.praise-card { border-radius: 12px; }
+
+@media (max-width: 1280px) {
+  .editor-grid { grid-template-columns: 250px minmax(0, 1fr) 360px; gap: 8px; padding: 8px; }
+  .metrics { gap: 7px; }
+  .canvas-stage { padding-inline: 20px; }
+  .app-identity small { display: none; }
+}
+@media (max-width: 960px) {
+  body { overflow: auto; }
+  .app-shell { height: auto; min-height: 100svh; }
+  .editor-grid { grid-template-columns: 260px minmax(0, 1fr); height: auto; min-height: calc(100svh - 64px); }
+  .source-rail { min-height: 760px; }
+  .canvas-column { min-height: 760px; }
+  .issue-rail { grid-column: 1 / -1; min-height: 720px; }
+  .issue-list { max-height: none; }
+}
+@media (max-width: 680px) {
+  .topbar { padding-inline: 12px; }
+  .workspace-status, .designer-label, .app-identity small, .meta-label { display: none; }
+  .editor-grid { display: grid; grid-template-columns: 1fr; height: auto; padding: 8px; }
+  .source-rail, .canvas-column, .issue-rail { grid-column: auto; min-height: 660px; }
+  .source-scroll { display: grid; grid-template-columns: 1fr; padding: 8px; }
+  .source-card { border: 1px solid var(--border); }
+  .source-actions { grid-template-columns: 1fr; }
+  .canvas-stage { padding: 16px 12px 72px; }
+}
+
+/* Full-bleed canvas workspace ---------------------------------------------------------------------
+   The canvas is the workspace: it fills the window with a dotted worksurface, and both rails float
+   above it as rounded panels that each collapse to a slim handle. Declared last on purpose — the
+   Luma shell section above still describes the previous three-column grid, and these rules replace
+   its layout while keeping its surface, radius, and shadow tokens. */
+.editor-grid {
+  position: relative;
+  display: block;
+  gap: 0;
+  padding: 0;
+  height: calc(100svh - 64px);
+  overflow: hidden;
+  background: var(--workspace);
+}
+.editor-grid > .canvas-column {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--workspace);
+}
+.editor-grid > .canvas-column .canvas-stage {
+  /* `local` attachment ties the pattern to the scrolled content, so panning moves the grid with the
+     evidence rather than sliding the images over a static backdrop. */
+  background-color: var(--workspace);
+  background-image: radial-gradient(circle, color-mix(in oklch, var(--foreground) 13%, transparent) var(--dot-radius, 1px), transparent var(--dot-radius, 1px));
+  background-size: var(--dot-gap, 18px) var(--dot-gap, 18px);
+  background-attachment: local;
+  padding: 74px 428px 100px 96px;
+}
+
+.editor-grid > .source-rail,
+.editor-grid > .issue-rail {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--panel-radius);
+  background: var(--card);
+  box-shadow: var(--panel-shadow);
+  transition: width .18s ease;
+}
+/* Width is a CSS variable so the reviewer's drag can widen it without touching any of the responsive
+   rules that follow; they set the variable's default per breakpoint. */
+.editor-grid > .issue-rail { right: 12px; width: var(--rail-width, 402px); }
+.editor-grid.issue-collapsed > .issue-rail { width: 0; border-width: 0; opacity: 0; pointer-events: none; }
+
+
+/* Collapsed, the left rail is an icon strip, not a dead handle: the reviewer keeps one-click access
+   to intake, the screen list, and starting a review without reopening the panel. */
+.rail-icon-bar {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  margin: 0 auto; padding: 10px 7px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); box-shadow: 0 10px 30px #10131b1f, 0 2px 6px #10131b0f;
+}
+.rail-icon-bar button {
+  position: relative; display: grid; place-items: center;
+  width: 40px; height: 40px; padding: 0;
+  border: 0; border-radius: 999px; background: transparent;
+  color: color-mix(in oklch, var(--foreground) 72%, transparent); cursor: pointer;
+}
+.rail-icon-bar button:hover:not(:disabled) { background: var(--muted); color: var(--foreground); }
+.rail-icon-bar button:disabled { opacity: .4; cursor: not-allowed; }
+.rail-icon-bar button svg { width: 20px; height: 20px; }
+.rail-icon-bar button b {
+  position: absolute; top: 3px; right: 2px;
+  min-width: 15px; padding: 0 4px; border-radius: 999px;
+  background: var(--primary); color: var(--primary-foreground);
+  font-size: 9px; font-weight: 700; line-height: 15px;
+}
+.rail-icon-bar .rail-icon-expand { margin-top: 4px; border-top: 1px solid var(--border); border-radius: 999px; }
+
+.rail-collapse-toggle {
+  position: absolute; top: 10px; z-index: 4;
+  display: grid; place-items: center;
+  width: 22px; height: 30px; padding: 0;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card); color: var(--muted-foreground);
+  cursor: pointer; font-size: 13px; line-height: 1;
+}
+.rail-collapse-toggle:hover { color: var(--foreground); background: var(--muted); }
+.editor-grid > .source-rail .rail-collapse-toggle { right: 10px; left: auto; }
+.editor-grid > .issue-rail .rail-collapse-toggle { left: 10px; right: auto; }
+.editor-grid.source-collapsed > .source-rail .rail-collapse-toggle,
+.editor-grid.issue-collapsed > .issue-rail .rail-collapse-toggle { left: 50%; right: auto; transform: translateX(-50%); }
+
+/* Floating overlays sit clear of both rails. */
+.editor-grid .canvas-tool-dock { left: 50%; right: auto; bottom: 18px; transform: translateX(-50%); }
+.editor-grid .screen-switcher {
+  position: absolute; z-index: 15; top: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; max-width: min(640px, calc(100% - 740px));
+  padding: 6px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); box-shadow: var(--panel-shadow); overflow-x: auto;
+}
+.editor-grid.source-collapsed.issue-collapsed .screen-switcher { max-width: min(820px, calc(100% - 180px)); }
+.editor-grid .screen-error {
+  position: absolute; z-index: 15; top: 64px; left: 50%; transform: translateX(-50%);
+  max-width: min(560px, calc(100% - 740px)); margin: 0;
+}
+
+@media (max-width: 1180px) {
+    .editor-grid > .issue-rail { width: var(--rail-width, 348px); }
+  .editor-grid > .canvas-column .canvas-stage { padding: 76px 372px 96px 282px; }
+  .editor-grid .screen-switcher { max-width: min(520px, calc(100% - 660px)); }
+}
+
+/* Batch-first intake -------------------------------------------------------------------------- */
+.intake, .screen-list-panel { padding: 12px; border-bottom: 1px solid var(--border); }
+.intake-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.intake-head strong { font-size: 12px; }
+.intake-head span { color: var(--muted-foreground); font-size: 10px; }
+.intake-zones { display: grid; gap: 8px; }
+.drop-zone { position: relative; border: 1px dashed var(--border); border-radius: 10px; background: var(--background); transition: border-color .15s ease, background .15s ease; }
+.drop-zone.is-active { border-color: var(--primary); }
+.drop-zone.is-dragging { border-color: var(--primary); background: color-mix(in oklch, var(--primary) 8%, transparent); }
+.drop-zone.has-files { border-style: solid; }
+.drop-zone-trigger { display: grid; gap: 3px; width: 100%; padding: 14px 12px; border: 0; background: transparent; cursor: pointer; text-align: center; }
+.drop-zone-label { font-size: 12px; font-weight: 650; color: var(--foreground); }
+.drop-zone-hint { color: var(--muted-foreground); font-size: 10px; }
+.drop-zone-count { position: absolute; top: 8px; right: 8px; min-width: 20px; padding: 1px 6px; border-radius: 999px; background: var(--primary); color: var(--primary-foreground); font-size: 10px; font-weight: 700; text-align: center; }
+.drop-zone-paste { position: absolute; left: 8px; bottom: 6px; color: var(--muted-foreground); font-size: 9px; }
+
+.screen-list { display: grid; gap: 6px; }
+.screen-row { position: relative; display: grid; align-items: center; gap: 9px; grid-template-columns: auto auto 1fr auto; width: 100%; padding: 7px 8px; border: 1px solid transparent; border-radius: 10px; background: transparent; cursor: pointer; text-align: left; }
+.screen-row:hover { background: var(--muted); }
+.screen-row.active { border-color: var(--primary); background: color-mix(in oklch, var(--primary) 7%, transparent); }
+.screen-row-id { color: var(--muted-foreground); font-size: 9px; font-weight: 700; }
+.screen-row-thumbs { display: flex; gap: 3px; }
+.screen-row-thumbs img { width: 20px; height: 30px; border: 1px solid var(--border); border-radius: 4px; background: var(--muted); object-fit: cover; }
+.screen-row-meta { display: grid; min-width: 0; gap: 1px; }
+.screen-row-name { overflow: hidden; font-size: 11px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.screen-row-status { color: var(--muted-foreground); font-size: 9px; }
+.screen-row-remove { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 999px; color: var(--muted-foreground); font-size: 13px; line-height: 1; }
+.screen-row-remove:hover { background: var(--background); color: var(--foreground); }
+
+/* Permanent tool rail + hover flyouts ------------------------------------------------------------
+   The rail is always present; each entry opens its panel to the right on hover. The panel is a
+   sibling inside the same hover region so the pointer can travel into it without it closing. */
+.tool-rail { position: absolute; top: 12px; left: 12px; bottom: 12px; z-index: 6; display: flex; align-items: flex-start; gap: 10px; pointer-events: none; }
+.tool-rail > * { pointer-events: auto; }
+.tool-rail .rail-icon-bar { flex: none; }
+.rail-icon-bar button.active { background: var(--muted); color: var(--foreground); }
+
+.rail-flyout {
+  display: flex; flex-direction: column; width: 300px; max-height: 100%;
+  border: 1px solid var(--border); border-radius: var(--panel-radius);
+  background: var(--card); box-shadow: var(--panel-shadow); overflow: hidden;
+}
+.rail-flyout-scroll { flex: 1; min-height: 0; overflow: auto; }
+.rail-flyout-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 12px 12px 8px; }
+.rail-flyout-head strong { font-size: 12px; }
+.rail-flyout-head span { color: var(--muted-foreground); font-size: 10px; }
+.rail-flyout-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-top: 1px solid var(--border); color: var(--muted-foreground); font-size: 10px; }
+
+.history-empty { margin: 0; padding: 16px 12px; color: var(--muted-foreground); font-size: 11px; line-height: 1.6; }
+.history-row { display: flex; align-items: center; gap: 4px; padding: 2px 8px; }
+.history-row:hover { background: var(--muted); }
+.history-open { display: grid; flex: 1; gap: 2px; min-width: 0; padding: 8px 4px; border: 0; background: transparent; cursor: pointer; text-align: left; }
+.history-name { overflow: hidden; font-size: 11px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.history-meta { color: var(--muted-foreground); font-size: 9px; }
+.history-actions { display: flex; gap: 2px; }
+.history-actions button { display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 7px; background: transparent; color: var(--muted-foreground); cursor: pointer; }
+.history-actions button:hover { background: var(--background); color: var(--foreground); }
+
+/* Primary action leads the dock. */
+.dock-run-action { pointer-events: auto; gap: 6px; height: 34px; padding-inline: 14px; border-radius: 10px; font-size: 11px; font-weight: 650; }
+.dock-cancel { pointer-events: auto; height: 34px; padding-inline: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--muted-foreground); cursor: pointer; font-size: 10px; }
+
+/* Annotate/overlay switch reads as a dark segmented control. */
+.view-controls .tabs__tab[data-active] {
+  background: color-mix(in oklch, var(--primary-action) 13%, transparent);
+  color: var(--primary-action);
+  box-shadow: none;
+}
+
+/* Collapsed issue panel is one button, not a full-height strip. */
+/* Collapsed, the issue list shrinks to a labelled pill in the bottom-right corner — the count is the
+   thing worth keeping visible, so it stays on the chip rather than hiding behind an icon. */
+/* Collapses to the same corner the collapse control sits in when the panel is open, so the panel
+   appears to shrink into and grow out of one place rather than jumping across the screen. */
+/* Screen tabs are the default way to move between screens. */
+.editor-grid .screen-switcher { max-width: min(640px, calc(100% - 620px)); }
+.editor-grid.issue-collapsed .screen-switcher { max-width: min(820px, calc(100% - 260px)); }
+
+/* Floating top bar -------------------------------------------------------------------------------
+   The chrome floats over the worksurface like the rails do, instead of a full-width bar that cuts the
+   canvas off at the top: logo plus project name in one pill on the left, the designer in another on
+   the right. Declared last so it supersedes the bar styling in the Luma shell section above. */
+.app-shell { position: relative; height: 100svh; overflow: hidden; }
+.topbar {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 8;
+  height: auto; padding: 12px;
+  border: 0; background: transparent; box-shadow: none; backdrop-filter: none;
+  pointer-events: none;
+}
+.topbar > * { pointer-events: auto; }
+.topbar .brand, .topbar .top-actions {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 40px; padding: 4px 12px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); box-shadow: var(--panel-shadow);
+}
+.topbar .brand-mark { width: 26px; height: 26px; border-radius: 8px; font-size: 10px; }
+.topbar .app-identity strong { font-size: 12px; }
+.topbar .app-identity small { display: none; }
+.topbar .project-meta { margin-left: 2px; }
+.topbar .editable-meta { gap: 4px; }
+
+/* The canvas now runs the full height beneath the floating bar; everything that sits on it starts
+   below the pills so nothing is covered. */
+.editor-grid { height: 100svh; }
+.editor-grid > .tool-rail,
+.editor-grid > .source-rail { top: 64px; }
+/* Expands from the same corner it collapsed into: the panel's top edge lines up with the chip and
+   with the top-bar pill, so there is no dead strip above it. The top bar only occupies the left
+   side now, so nothing is covered. */
+.editor-grid > .issue-rail { top: 12px; }
+.editor-grid .screen-switcher { top: 66px; }
+.editor-grid .screen-error { top: 116px; }
+.editor-grid > .canvas-column .canvas-stage { padding-top: 118px; }
+
+/* Dock icon buttons sit on the dock's own white surface, so their secondary-button fill just added a
+   grey block around each glyph. Keep them flat; hover still gives feedback. */
+.canvas-tool-dock .dock-record-actions .button,
+.canvas-tool-dock .dock-map-toggle,
+.canvas-tool-dock .zoom-controls .button,
+.canvas-tool-dock .visibility-controls .button,
+.canvas-tool-dock .visibility-controls .button[aria-pressed="true"] {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.canvas-tool-dock .dock-record-actions .button:hover:not(:disabled),
+.canvas-tool-dock .dock-map-toggle:hover:not(:disabled),
+.canvas-tool-dock .zoom-controls .button:hover:not(:disabled),
+.canvas-tool-dock .visibility-controls .button:hover:not(:disabled),
+.canvas-tool-dock .visibility-controls .button[aria-pressed="true"]:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+.canvas-tool-dock .zoom-controls .button:disabled,
+.canvas-tool-dock .dock-record-actions .button:disabled { background: transparent; opacity: .34; }
+
+/* Canvas is a full-bleed layer; the panels float above it. Its padding is therefore constant — a
+   panel opening or closing must never reflow the comparison underneath it. Content that ends up
+   behind a panel is reached by panning, which is available at any zoom level. */
+.editor-grid > .canvas-column .canvas-stage { padding: 118px 120px 110px 120px; }
+@media (max-width: 1180px) {
+  .editor-grid > .canvas-column .canvas-stage { padding: 118px 96px 110px 96px; }
+}
+.canvas-stage.can-pan { cursor: grab; }
+.canvas-stage.is-dragging { cursor: grabbing; }
+
+/* Issue panel header: black circular badge on the left, collapse control on the right where the
+   decorative "Review" tag used to sit. */
+.issue-rail-header .panel-heading { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.issue-rail-header .panel-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+/* Collapsed issue chip mirrors the expanded header: black round badge, label, then the expand
+   affordance in the same slot the collapse control occupies when open. */
+
+/* The tool rail is vertically centred on the canvas rather than parked at the top, so it reads as a
+   floating instrument beside the work instead of a second header. Its flyout is centred with it and
+   capped so a long panel still fits the window. */
+.editor-grid > .tool-rail {
+  top: 50%; bottom: auto; transform: translateY(-50%);
+  align-items: center;
+}
+.editor-grid > .tool-rail .rail-flyout { max-height: calc(100svh - 150px); }
+
+/* Bridge the visual gap between the icon bar and its flyout. Without it the pointer crosses bare
+   canvas on the way over, which counts as leaving the rail and closes the panel mid-travel. */
+.rail-icon-bar { position: relative; }
+.rail-icon-bar::after { content: ""; position: absolute; top: -8px; bottom: -8px; left: 100%; width: 18px; }
+
+/* Flatter chrome ---------------------------------------------------------------------------------
+   The dock and the issue rail had a container inside a container: an outer card, then each control
+   group carried its own border, fill and radius, so every button sat in a box in a box. Collapse
+   that to one surface per region — a single pill for the dock, one card for the rail — and let the
+   controls sit directly on it. Light only; no dark mode. */
+.editor-grid .canvas-tool-dock {
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: 0 10px 30px #10131b1a, 0 2px 6px #10131b0d;
+}
+.editor-grid .canvas-tool-dock .view-controls,
+.editor-grid .canvas-tool-dock .zoom-controls,
+.editor-grid .canvas-tool-dock .visibility-controls {
+  gap: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+/* Hairline separators instead of nested boxes. */
+/* Same divider as the top-bar pill: a short rule matched to the text height, not a full-height
+   border that cuts the toolbar in two. */
+.editor-grid .canvas-tool-dock .zoom-controls {
+  position: relative;
+  margin-left: 6px;
+  padding-left: 11px;
+  border-left: 0;
+}
+.editor-grid .canvas-tool-dock .zoom-controls::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 13px; background: var(--border);
+}
+/* This group leads the pill, so it divides on its right instead. */
+.editor-grid .canvas-tool-dock .dock-record-actions {
+  position: relative;
+  margin-right: 6px;
+  padding-right: 11px;
+}
+.editor-grid .canvas-tool-dock .dock-record-actions::after {
+  content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 13px; background: var(--border);
+}
+/* The tab component marks a disabled trigger with data-disabled, not the native attribute, so the
+   framework's disabled: variants never match and the control looked live while ignoring clicks. */
+.canvas-tool-dock .tabs__tab[data-disabled] { opacity: .34; pointer-events: none; }
+.editor-grid .canvas-tool-dock .button { border-radius: 999px; }
+.editor-grid .canvas-tool-dock .view-controls .tabs__list { gap: 2px; background: transparent; }
+.editor-grid .canvas-tool-dock .view-controls .tabs__tab { border-radius: 999px; }
+.editor-grid .canvas-tool-dock .dock-run-action { border-radius: 999px; }
+
+/* Issue rail: one card, sections separated by hairlines rather than stacked filled blocks. */
+.editor-grid > .issue-rail .issue-rail-header,
+.editor-grid > .issue-rail .issue-filter-panel,
+.editor-grid > .issue-rail .issue-list,
+.editor-grid > .issue-rail .export-bar { background: transparent; }
+.editor-grid > .issue-rail .issue-filter-chip { border-color: transparent; background: transparent; }
+.editor-grid > .issue-rail .issue-filter-chip:hover { background: var(--muted); }
+.editor-grid > .issue-rail .issue-filter-chip[aria-pressed="true"] { border-color: var(--foreground); background: var(--foreground); color: var(--background); }
+.editor-grid > .issue-rail .issue-rail-header > .tabs .tabs__list { border: 0; background: var(--muted); }
+
+/* Designer now shares the brand pill with the project name. */
+/* Both metadata fields read the same way. The divider is a short rule matched to the text height
+   rather than a full-height border, so it separates the labels without cutting the whole pill. */
+.topbar .brand .field-label { color: var(--muted-foreground); font-size: 11px; white-space: nowrap; }
+.topbar .brand .designer-field { position: relative; margin-left: 12px; padding-left: 13px; border-left: 0; }
+.topbar .brand .designer-field::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 13px; background: var(--border);
+}
+
+/* Icon-only view switch in the dock. */
+.editor-grid .canvas-tool-dock .view-controls .tabs__tab { min-width: 34px; padding-inline: 0; }
+
+/* Collapse / expand controls carry no chrome — same flat icon treatment as the canvas dock buttons,
+   which use a transparent border and fill so hover is the only surface. */
+
+/* Collapse / expand: one button, one place ------------------------------------------------------
+   Measured before this rule, the control jumped 12px up and 8px right between the two states. Both
+   panel and chip are anchored to the same corner (top 12 / right 12), so pinning the control to
+   identical offsets inside each makes the toggle appear stationary while the surface behind it grows
+   or shrinks. */
+/* Anchored to the rail itself (already absolutely positioned), not to the header row, so the offsets
+   are measured from the same corner the chip uses: rail sits at top 12 / right 12, the chip's button
+   lands at viewport top 18 / right 20, so the panel's control needs top 6 / right 8 to coincide. */
+.editor-grid > .issue-rail 
+/* Collapse states, no animation: the panel and the chip swap instantly. Both stay mounted so the
+   issue list keeps its scroll position and any in-progress edits across a collapse. */
+.editor-grid > .issue-rail.is-collapsed,
+
+/* Title row shares the collapse control's band. The header centred its content in a 64px strip while
+   the control sits at the panel's top-right corner, so the two read as different rows. A 44px band
+   centres the 30px icon at y=22 — the control's own centre — and the title lines up with it. */
+.editor-grid > .issue-rail .issue-rail-header .panel-title { min-height: 44px; }
+
+/* Intake + pairing polish ------------------------------------------------------------------------
+   The paste hint now lives in the zone's sub-line, so its floating label is gone. */
+.drop-zone-paste { display: none; }
+
+/* Thumbnails hug their image instead of sitting in a wide grey frame: a 1290×2796 phone screenshot
+   in a full-width box was mostly empty plate, which made the two sides hard to compare. */
+.pairing-row img { width: auto; max-width: 100%; height: 132px; margin: 0 auto; background: transparent; }
+.pairing-row figure { align-items: stretch; }
+
+/* Screenshot picker with thumbnails. */
+.thumb-picker { position: relative; display: block; min-width: 0; }
+.thumb-picker-trigger {
+  display: flex; align-items: center; gap: 6px; width: 100%; padding: 3px 6px;
+  border: 1px solid var(--panel-border); border-radius: 7px; background: var(--background);
+  cursor: pointer; font-size: 10px; text-align: left;
+}
+.thumb-picker-trigger:hover { border-color: var(--primary); }
+.thumb-picker-trigger img { width: 20px; height: 26px; flex: none; border-radius: 3px; background: var(--muted); object-fit: cover; }
+.thumb-picker-name { overflow: hidden; flex: 1; text-overflow: ellipsis; white-space: nowrap; }
+.thumb-picker-caret { flex: none; color: var(--muted-foreground); }
+.thumb-picker-menu {
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 4px);
+  max-height: 260px; overflow: auto; padding: 4px;
+  border: 1px solid var(--panel-border); border-radius: 10px;
+  background: var(--card); box-shadow: 0 14px 36px #10131b26;
+}
+.thumb-picker-option {
+  display: flex; align-items: center; gap: 8px; width: 100%; padding: 5px 6px;
+  border: 0; border-radius: 7px; background: transparent; cursor: pointer; text-align: left;
+}
+.thumb-picker-option:hover { background: var(--muted); }
+.thumb-picker-option.selected { background: color-mix(in oklch, var(--primary) 10%, transparent); }
+.thumb-picker-option img { width: 34px; height: 44px; flex: none; border: 1px solid var(--border); border-radius: 4px; background: var(--muted); object-fit: cover; }
+.thumb-picker-meta { display: grid; min-width: 0; gap: 1px; }
+.thumb-picker-meta small { color: var(--muted-foreground); font-size: 9px; }
+
+/* Pairing dialog refinements --------------------------------------------------------------------- */
+.pairing-close {
+  display: grid; place-items: center; flex: none; width: 30px; height: 30px;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-foreground); cursor: pointer;
+}
+.pairing-close:hover { background: var(--muted); color: var(--foreground); }
+
+/* Hover a thumbnail to swap that one file. */
+.pairing-thumb { position: relative; display: block; }
+.pairing-replace { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 6px; background: #10131bb3; color: #fff; cursor: pointer; opacity: 0; transition: opacity .15s ease; }
+.pairing-replace input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.pairing-replace span { padding: 4px 12px; border-radius: 999px; background: #ffffff26; font-size: 11px; font-weight: 600; }
+.pairing-thumb:hover .pairing-replace, .pairing-replace:focus-within { opacity: 1; }
+
+/* Menu is placed in the viewport now, so it must not inherit the row's absolute context. */
+.thumb-picker-menu { position: fixed; right: auto; }
+
+/* Leaving a restored record needs an explicit choice: importing new evidence discards what is on
+   screen, and the reviewer may not realise they are still inside a saved record. */
+/* Popconfirm anchored on the + button: leaving a record is a small, reversible decision, so it does
+   not warrant a full modal over the workbench. */
+.popconfirm-scrim { position: fixed; inset: 0; z-index: 44; }
+.popconfirm {
+  position: fixed; z-index: 45; width: 258px; padding: 12px 13px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--card); box-shadow: 0 16px 40px #10131b2e;
+}
+.popconfirm strong { display: block; margin-bottom: 5px; font-size: 12px; }
+.popconfirm p { margin: 0 0 11px; color: var(--muted-foreground); font-size: 11px; line-height: 1.6; }
+.popconfirm-actions { display: flex; justify-content: flex-end; gap: 6px; }
+
+/* Unsaved edits to an open record are resolved from the dock, next to the work itself. */
+/* The dock itself is pointer-events:none so it never swallows canvas input; each control opts back
+   in. Without this the buttons rendered but every click passed straight through to the canvas. */
+.dock-record-actions { pointer-events: auto; display: inline-flex; align-items: center; gap: 2px; }
+.dock-map-toggle { pointer-events: auto; }
+/* Undo/redo/save are their own pill so history actions read as a separate group from the review
+   controls. The row owns the placement; each dock inside it is a plain flex item. */
+/* A viewport of slack on every side of the artwork, so panning is bounded by the extent rather
+   than by the frames. The canvas is scroll-based, and a scroll container cannot travel past its
+   content — this is what gives drag mode somewhere to go. */
+/* content-box with an explicit width: with the default border-box and width:auto the element
+   shrinks to fit its own padding, which collapsed the artwork to zero width. */
+.canvas-extent { box-sizing: content-box; width: 100%; }
+/* The hint is one block inside the extent rather than a full-height panel, so the extent's own
+   padding is what centres it. */
+.canvas-extent > .canvas-empty { height: auto; }
+/* Anchored to its toggle and floating above the dock, so it reads as that button's panel rather
+   than as another permanent chrome element competing with the canvas. */
+/* Same page-level layer as the minimap, for the same reason: the canvas column is its own
+   stacking context and would bury it under the issue rail. */
+.opacity-popover { position: fixed; z-index: 60; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 9px; width: 232px; padding: 8px 13px;
+  border: 1px solid var(--border); border-radius: 999px; background: var(--card);
+  box-shadow: 0 10px 30px #10131b1a, 0 2px 6px #10131b0d; }
+.opacity-popover .opacity-range { flex: 1; }
+.opacity-popover > span { min-width: 32px; color: var(--muted-foreground); font-size: 11px;
+  font-variant-numeric: tabular-nums; text-align: right; }
+.canvas-minimap { position: fixed; z-index: 60; transform: translateX(-50%);
+  padding: 5px; border: 1px solid var(--border); border-radius: 11px; background: var(--card);
+  box-shadow: 0 10px 30px #10131b1a, 0 2px 6px #10131b0d; }
+.canvas-minimap-surface { position: relative; overflow: hidden; border-radius: 7px;
+  background: var(--workbench); cursor: pointer; touch-action: none; }
+.canvas-minimap-frame { position: absolute; border-radius: 2px;
+  background: color-mix(in oklch, var(--foreground) 22%, transparent); }
+.canvas-minimap-viewport { position: absolute; border: 1.5px solid var(--primary-action); border-radius: 3px;
+  background: color-mix(in oklch, var(--primary-action) 12%, transparent); pointer-events: none; }
+.canvas-tool-dock .dock-map-toggle.is-open,
+.canvas-tool-dock .dock-map-toggle.is-open:hover {
+  background: color-mix(in oklch, var(--primary-action) 13%, transparent);
+  color: var(--primary-action);
+}
+.canvas-dock-row { position: absolute; z-index: 20; left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px; pointer-events: none; }
+.canvas-dock-row .canvas-tool-dock { position: static; left: auto; right: auto; bottom: auto; transform: none; }
+/* Centred in the canvas and held there. --dock-shift is set only when the issue panel would
+   actually cover the toolbar, so opening or closing the panel leaves a toolbar that already fits
+   exactly where it was. */
+.editor-grid .canvas-dock-row {
+  left: 16px; right: 16px; bottom: 18px;
+  justify-content: center;
+  transform: translateX(calc(-1 * var(--dock-shift, 0px)));
+  transition: transform .18s ease;
+}
+.dock-issues-toggle { pointer-events: auto; }
+.canvas-tool-dock .dock-issues-toggle { position: relative; width: 32px; padding: 0; }
+/* Count rides on the icon rather than sitting beside it, so the pill stays one square button and
+   does not resize every time an issue is added or ignored. */
+.dock-badge {
+  position: absolute; top: -3px; right: -3px; min-width: 15px; height: 15px; padding: 0 4px;
+  display: grid; place-items: center; border-radius: 999px;
+  background: var(--primary-action); color: var(--on-primary-action);
+  font-size: 9px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums;
+}
+.canvas-tool-dock .dock-issues-toggle.is-open,
+.canvas-tool-dock .dock-issues-toggle.is-open:hover {
+  background: color-mix(in oklch, var(--primary-action) 13%, transparent);
+  color: var(--primary-action);
+}
+/* Now that the group is its own pill it no longer needs an internal divider. */
+.editor-grid .canvas-tool-dock .dock-record-actions { margin-right: 0; padding-right: 0; }
+.editor-grid .canvas-tool-dock .dock-record-actions::after { content: none; }
+.toast.is-error { border-color: #fecaca; background: #fef2f2; color: #b91c1c; }
+/* Anchored above the dock rather than below it, so the confirm never leaves the viewport. */
+.popconfirm-above { transform: translateY(-100%); }
+
+/* Tooltip carries the shortcut next to the label, so the key is discoverable from the control. */
+.global-button-tip { display: inline-flex; align-items: center; gap: 6px; }
+.tip-key {
+  display: inline-grid; place-items: center; min-width: 17px; height: 17px; padding: 0 5px;
+  border-radius: 5px; background: #ffffff2e; color: #fff;
+  font-family: inherit; font-size: 10px; font-weight: 700; line-height: 1;
+}
+
+/* Status toast: one place for every message, clear of the rails and the screen tabs. */
+/* Above every modal backdrop: confirmations fired from inside a dialog (配对已确认, 已忽略该组) were
+   reported behind the scrim, so the only feedback for the action was invisible. */
+.toast {
+  position: fixed; z-index: 10050; top: 62px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 10px;
+  max-width: min(560px, calc(100vw - 220px));
+  padding: 9px 16px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); box-shadow: 0 12px 32px #10131b24;
+  color: var(--foreground); font-size: 12px; line-height: 1.4;
+}
+.toast > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.toast .button { flex: none; margin: -3px -8px -3px 0; }
+
+/* Issue panel header ---------------------------------------------------------- */
+/* Title text only: the icon repeated what the heading already said and the counts are visible in
+   the tabs right below it. */
+.issue-rail-header .panel-title { min-height: 0; padding: 10px 13px 16px; }
+.issue-rail-header .panel-heading strong { color: var(--foreground); font-size: 13px; }
+/* The tab group's trailing gap sat above an empty tab panel, so it read as stray padding. */
+.issue-rail-header .tabs { gap: 0; }
+
+/* The canvas is navigated by dragging, the wheel, and the minimap; its scrollbars only ever
+   advertised the extent's empty space. */
+.canvas-stage { scrollbar-width: none; }
+.canvas-stage::-webkit-scrollbar { width: 0; height: 0; }
+
+/* A disabled dock control must not read as pressable: the pointer-events opt-in each one needs in
+   order to work at all was also re-enabling hover and the pointer cursor while disabled. */
+.canvas-tool-dock .button:disabled,
+.canvas-tool-dock .button[data-disabled],
+.canvas-tool-dock .tabs__tab[data-disabled] { pointer-events: none; cursor: default; }
+
+/* Actions live in the title row now, so the panel opens with two bands instead of four. */
+.issue-rail-header .panel-title { gap: 10px; }
+.panel-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+.panel-actions .button[aria-pressed="true"] {
+  background: color-mix(in oklch, var(--primary-action) 13%, transparent);
+  color: var(--primary-action);
+}
+/* Advice that belongs to the list is part of the list: it scrolls with the cards rather than
+   holding a permanent band of chrome open above them. */
+.list-note { margin: 0 0 8px; color: var(--muted-foreground); font-size: 10px; line-height: 1.5; }
+
+/* Issue card states -----------------------------------------------------------
+   Selection reads as a blue outline on all four sides. The 3px left bar was a second kind of marker
+   competing with the red canvas annotation, and the lift shadow it came with made a click look like
+   the card jumped forward. Hover keeps a feedback, but only in colour: nothing here changes size,
+   position, or elevation, so the list never shifts under the pointer. */
+.issue-card {
+  border: 1px solid var(--panel-border);
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.issue-card:hover {
+  border-color: color-mix(in oklab, var(--primary-action) 30%, var(--border));
+  background: color-mix(in oklab, var(--primary-action) 3%, var(--card));
+  box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 3%, transparent);
+}
+.issue-card.selected,
+.issue-card.selected:hover {
+  border-color: var(--primary-action);
+  /* A ring rather than a thicker border: border width would reflow the card's contents. */
+  box-shadow: 0 0 0 1px var(--primary-action);
+  background: var(--card);
+}
+/* Ignored cards keep their muted fill as the marker and stay visually quiet on hover. */
+.issue-card.ignored,
+.issue-card.ignored:hover {
+  border-color: var(--border);
+  background: color-mix(in oklch, var(--muted) 60%, var(--card));
+  box-shadow: none;
+}
+
+/* 恢复问题 matches 忽略 on an active card: a quiet text action, since both are the one reversible
+   move that card offers and neither should outweigh the issue content beside it. */
+.issue-card .restore-button {
+  min-height: 25px; padding: 3px 6px; border-color: transparent; background: transparent;
+  color: var(--muted-foreground); font-weight: 500;
+}
+.issue-card .restore-button:hover {
+  background: color-mix(in oklab, var(--primary-action) 8%, var(--card));
+  color: var(--primary-action);
+}
+
+/* Severity filter menu -------------------------------------------------------- */
+.type-filter-spacer { flex: 1 1 auto; min-width: 4px; }
+.filter-menu-trigger {
+  display: grid; place-items: center; flex: 0 0 auto; width: 28px; height: 28px;
+  border: 1px solid transparent; border-radius: 8px; background: transparent;
+  color: var(--muted-foreground); cursor: pointer;
+}
+.filter-menu-trigger:hover { background: var(--muted); color: var(--foreground); }
+/* A filtered list looks the same as an unfiltered one, so the trigger has to say so. */
+.filter-menu-trigger.is-filtered {
+  background: color-mix(in oklab, var(--primary-action) 13%, transparent);
+  color: var(--primary-action);
+}
+/* Fixed, like the other menus in this app: the header it sits in scrolls and clips. */
+.filter-menu {
+  position: fixed; z-index: 60; min-width: 168px; padding: 5px;
+  border: 1px solid var(--border); border-radius: 11px; background: var(--popover);
+  box-shadow: 0 12px 32px color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+.filter-menu button {
+  display: flex; align-items: center; gap: 8px; width: 100%; padding: 7px 9px;
+  border: 0; border-radius: 7px; background: transparent; color: var(--foreground);
+  font-size: 12px; text-align: left; cursor: pointer;
+}
+.filter-menu button:hover { background: var(--muted); }
+.filter-menu button.is-divided { margin-top: 5px; }
+.filter-menu button.is-divided::before {
+  content: ""; position: absolute; left: 5px; right: 5px; margin-top: -8px;
+  border-top: 1px solid var(--border);
+}
+.filter-menu button[aria-checked="true"] { color: var(--primary-action); font-weight: 600; }
+.filter-menu-check { flex: 0 0 12px; font-size: 11px; }
+.filter-menu-label { flex: 1 1 auto; }
+.filter-menu-count { flex: 0 0 auto; color: var(--muted-foreground); font-size: 11px; font-variant-numeric: tabular-nums; }
+.filter-menu { position: fixed; }
+
+/* Hover and selection both carry a shadow now. Shadows do not participate in layout, so the card
+   reads as lifted without anything actually moving — which is what made the earlier lift feel like
+   a jump: it was paired with a state change on click. */
+.issue-card:hover {
+  box-shadow: 0 4px 14px color-mix(in oklab, var(--foreground) 7%, transparent);
+}
+.issue-card.selected,
+.issue-card.selected:hover {
+  box-shadow: 0 0 0 1px var(--primary-action),
+    0 6px 18px color-mix(in oklab, var(--primary-action) 14%, transparent);
+}
+.issue-card.ignored:hover { box-shadow: 0 2px 8px color-mix(in oklab, var(--foreground) 5%, transparent); }
+
+/* The list's scrollbar took layout width, so every card narrowed the moment the list overflowed and
+   widened again when it did not. Same treatment as the canvas: the scrollbar takes no space, so card
+   width is the panel's width and never depends on how many issues there are. Scrolling still works
+   by wheel and trackpad, and selecting an issue scrolls its card into view. */
+.issue-list { scrollbar-width: none; }
+.issue-list::-webkit-scrollbar { width: 0; height: 0; }
+
+/* --- issue card / menu refinements ---------------------------------------------------------- */
+/* Hover is shadow only. A colour shift on every card the pointer crossed competed with the blue
+   outline that means "selected", so depth alone signals "you are over this one". */
+.issue-card:hover {
+  border-color: var(--panel-border);
+  background: var(--card);
+  box-shadow: 0 4px 14px color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+/* Ignored cards read as normal cards; the 已忽略 badge and the tab they live in already say what
+   they are, and a grey fill made them look disabled rather than archived. */
+.issue-card.ignored,
+.issue-card.ignored:hover { background: var(--card); }
+.issue-card.ignored:hover { box-shadow: 0 4px 14px color-mix(in oklab, var(--foreground) 8%, transparent); }
+.issue-card.ignored .region-comparison { filter: none; opacity: 1; }
+/* The note follows the cards it describes. */
+.issue-list .list-note { margin: 10px 2px 2px; }
+/* A real border instead of an absolutely positioned pseudo-element: the menu is the positioned
+   ancestor, so the line was laid out against the menu box and cut through the first item. */
+.filter-menu button.is-divided {
+  margin-top: 5px; padding-top: 11px; border-top: 1px solid var(--border); border-radius: 0 0 7px 7px;
+}
+.filter-menu button.is-divided::before { content: none; }
+
+.canvas-extent > .canvas-empty,
+.canvas-empty {
+  position: fixed; left: 0; right: 0; top: 56px; bottom: 76px;
+  height: auto; display: grid; place-content: center; justify-items: center; gap: 10px;
+}
+
+/* Intake flyout ---------------------------------------------------------------
+   The panel was 300px wide with 2px between a label and its field, so the form read as one dense
+   block and still overflowed. A little more width and vertical rhythm, and more of the window
+   height to work with, so the common case needs no scrolling at all. */
+.editor-grid > .tool-rail .rail-flyout { width: 328px; max-height: calc(100svh - 96px); }
+.rail-flyout-head { padding: 14px 16px 10px; }
+.rail-flyout-foot { padding: 10px 16px; }
+.figma-form { gap: 14px; padding: 4px 0 2px; }
+.figma-form .textfield { gap: 6px; }
+.figma-form .label { font-size: 11px; }
+.figma-form .input { min-height: 36px; font-size: 12px; }
+.figma-form [data-slot="description"] { margin-top: 6px; line-height: 1.5; }
+.figma-form .button { min-height: 38px; margin-top: 2px; }
+.source-mode-tabs { margin-bottom: 4px; }
+/* If it does have to scroll, the bar should not eat into the form's width. */
+.rail-flyout-scroll { scrollbar-width: none; padding-inline: 16px; }
+.rail-flyout-scroll::-webkit-scrollbar { width: 0; height: 0; }
+.rail-flyout-scroll > * { padding-inline: 0; }
+
+/* A `visibility: hidden` element still occupies layout, so this help popover added its own height to
+   the intake panel's scroll extent and made the panel scroll while showing nothing. Removed from
+   layout until it is actually wanted. */
+.token-help-popover { display: none; }
+.token-help:hover .token-help-popover,
+.token-help:focus-within .token-help-popover { display: grid; }
+
+/* The button component's own icon sizing (a 36px square) was winning over the 16px badge these rules
+   intend, stretching the help trigger into a tall pill. Pinned explicitly. */
+.figma-form .token-help-trigger {
+  width: 18px; height: 18px; min-height: 0; min-width: 0; padding: 0;
+  border-radius: 999px; font: 700 10px/1 system-ui; flex: none;
+}
+.figma-form .figma-load-button { min-height: 38px; border-color: var(--border); background: transparent; }
+.figma-form .figma-load-button:hover:not(:disabled) {
+  border-color: color-mix(in oklab, var(--primary-action) 40%, var(--border));
+  background: color-mix(in oklab, var(--primary-action) 5%, transparent);
+  color: var(--primary-action);
+}
+
+/* Batch scope line above the phase title: which screen of how many is being analysed. */
+.analysis-scope { color: var(--muted-foreground); font-size: 11px; letter-spacing: .02em; }
+
+/* Which screen the batch is on, without a spinner: the tab says so in words, and the ring makes it
+   findable in a long switcher. status-* was applied in the markup but had no styling at all. */
+.screen-tab-badge.running { background: color-mix(in oklab, var(--primary-action) 14%, transparent); color: var(--primary-action); }
+.screen-tab.status-running { border-color: color-mix(in oklab, var(--primary-action) 45%, var(--border)); }
+.screen-tab.status-failed { border-color: #fecaca; }
+
+/* Pairing dialog rework -------------------------------------------------------
+   Status is the spine of this step, so it drives the whole card rather than sitting in the middle
+   as one more label to read. Three states only: ready / review / broken. */
+.pairing-progress { display: flex; align-items: baseline; gap: 10px; color: var(--muted-foreground); font-size: 12px; }
+.pairing-progress b { color: var(--foreground); font-size: 13px; font-variant-numeric: tabular-nums; }
+.pairing-progress em { font-style: normal; color: #b45309; font-weight: 600; }
+.pairing-progress i { font-style: normal; color: #15803d; font-weight: 600; }
+.pairing-progress s { text-decoration: none; color: var(--muted-foreground); }
+.pairing-head-actions { display: flex; align-items: center; gap: 8px; }
+.pairing-scope-note { margin: 0 0 4px; color: var(--muted-foreground); font-size: 11px; }
+
+.pairing-row.state-ready { border-color: var(--panel-border); background: var(--card); }
+.pairing-row.state-review { border-color: #fcd34d80; background: #fffbeb; }
+.pairing-row.state-broken { border-color: #fca5a580; background: #fef2f2; }
+.pairing-row.is-skipped { opacity: .55; background: var(--muted); border-color: var(--border); }
+.pairing-row-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.pairing-row-actions { display: flex; align-items: center; gap: 2px; }
+.pairing-state { padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.pairing-state.ready { background: #dcfce7; color: #15803d; }
+.pairing-state.review { background: #fef3c7; color: #b45309; }
+.pairing-state.broken { background: #fee2e2; color: #b91c1c; }
+.pairing-row-body { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: start; }
+
+/* A connector rather than a bare chip: the task is "are these two the same screen", so the middle
+   should read as a relationship carrying a number, not as a table column. */
+.pairing-link { display: flex; flex-direction: column; align-items: center; gap: 6px; align-self: center; min-width: 76px; }
+.pairing-link-line { flex: 1 1 auto; width: 1px; min-height: 18px; background: var(--border); }
+.pairing-match { padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pairing-match.ready { background: #dcfce7; color: #15803d; }
+.pairing-match.review { background: #fef3c7; color: #b45309; }
+.pairing-match.broken { background: #fee2e2; color: #b91c1c; }
+
+.pairing-alt-hint { display: block; margin-top: 5px; color: var(--muted-foreground); font-size: 10px; }
+.pairing-reason { margin-top: 10px; padding: 9px 11px; border-radius: 9px; font-size: 11px; line-height: 1.6; }
+.pairing-reason p { margin: 0; }
+.pairing-reason.review { background: #fef3c740; color: #92400e; }
+.pairing-reason.broken { background: #fee2e240; color: #991b1b; }
+/* The remedy sits with the row that needs it; the footer keeps only the global add-more actions. */
+.pairing-reason-actions { display: flex; gap: 8px; margin-top: 8px; }
+.pairing-thumb[role="button"] { cursor: zoom-in; }
+
+/* A viewer sized to be read, not to fill the screen. At min(1180px, 94vw) with a 68vh image the
+   dialog ran 1180×1032 and the artwork sat flush against its edges; roughly 70% of that leaves the
+   pair comfortably legible with visible margin around it. */
+.pair-preview { width: min(820px, 86vw); }
+.pair-preview-body { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 10px 6px 8px; }
+.pair-preview-body figure { display: grid; gap: 8px; margin: 0; justify-items: center; }
+.pair-preview-body figcaption { display: flex; align-items: center; gap: 8px; justify-content: flex-start; width: 100%; font-size: 12px; }
+.pair-preview-body figcaption span:last-child { overflow: hidden; color: var(--muted-foreground); font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+/* A px cap as well as the vh one: on a tall display 56vh alone still rendered the artwork nearly
+   full size, so the dialog stayed as big as before. */
+.pair-preview-body img { max-width: 100%; max-height: min(600px, 52vh); border: 1px solid var(--border); border-radius: 10px; background: #fafafa; object-fit: contain; }
+.pair-preview-body small { color: var(--muted-foreground); font-size: 10px; font-variant-numeric: tabular-nums; }
+
+/* Empty-list variants. The list must say which of these it is: not run, failed, or genuinely clean.
+   One shared "暂无待确认问题" made a failed review look identical to a passing one. */
+.empty-list { display: grid; gap: 6px; justify-items: center; padding: 28px 18px; text-align: center; }
+.empty-list strong { color: var(--foreground); font-size: 13px; }
+.empty-list span { color: var(--muted-foreground); font-size: 11px; line-height: 1.6; }
+.empty-list .button { margin-top: 6px; }
+/* A failed screen no longer shouts from the list itself: the reason is announced once, in the
+   dismissible banner below, and the list only explains what empty means here. */
+.issue-list-failed-note { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #fecaca; border-radius: 10px; background: #fef2f2; color: #b91c1c; font-size: 11px; line-height: 1.6; }
+.issue-list-failed-note > span { min-width: 0; text-wrap: pretty; }
+.issue-list-failed-note .button { flex: none; }
+.issue-list-failed-close { flex: none; display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; }
+.issue-list-failed-close:hover { background: #fecaca80; }
+.empty-list.is-clean strong { color: #15803d; }
+
+/* The row is now a stack (status header / image pair / reason), so its own grid must not keep the
+   old three-column template — the head, body and reason were being placed into 1fr / 76px / 1fr and
+   the image columns collapsed to zero width. */
+.pairing-row { display: block; align-items: stretch; }
+.pairing-row-body { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 14px; align-items: start; }
+.pairing-row-body figure { min-width: 0; }
+.pairing-row-body img { width: auto; max-width: 100%; height: 132px; margin: 0 auto; }
+
+/* Re-review summary. The question an acceptance round actually has to answer is "did the things I
+   reported get fixed", so the answer sits above the list rather than being reconstructed by hand. */
+.round-summary { margin: 0 2px 10px; padding: 12px 13px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.round-summary-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 10px; }
+.round-summary-head strong { font-size: 13px; }
+.round-summary-head span { color: var(--muted-foreground); font-size: 10px; }
+.round-stats { display: flex; gap: 8px; }
+.round-stat { flex: 1 1 0; display: grid; gap: 2px; justify-items: center; padding: 8px 6px; border-radius: 9px; font-size: 10px; }
+.round-stat b { font-size: 17px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.round-stat.fixed { background: #dcfce7; color: #15803d; }
+.round-stat.carried { background: #fef3c7; color: #b45309; }
+.round-stat.added { background: #fee2e2; color: #b91c1c; }
+.round-fixed { margin-top: 10px; }
+.round-fixed summary { cursor: pointer; color: var(--muted-foreground); font-size: 11px; }
+.round-fixed ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.round-fixed li { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; }
+.round-fixed s { color: var(--muted-foreground); text-decoration-color: #15803d; }
+.round-fixed small { flex: none; color: #a1a1aa; font-size: 9px; }
+.history-actions { display: flex; align-items: center; gap: 4px; }
+.history-rereview { min-height: 26px; padding: 0 9px; font-size: 11px; }
+
+/* Screen strip: the overview entry is pinned so it never scrolls out of reach when 21 tabs overflow. */
+.screen-switcher-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.screen-switcher-tabs::-webkit-scrollbar { width: 0; height: 0; }
+.screen-overview-toggle {
+  display: flex; flex: none; align-items: center; gap: 5px; padding: 5px 11px 5px 9px; border: 1px solid var(--border);
+  border-radius: 999px; background: var(--card); color: var(--foreground); cursor: pointer; font-size: 11px; white-space: nowrap;
+}
+.screen-overview-toggle:hover { border-color: color-mix(in oklab, var(--primary-action) 40%, var(--border)); }
+.screen-overview-toggle.active {
+  border-color: color-mix(in oklab, var(--primary-action) 45%, var(--border));
+  background: color-mix(in oklab, var(--primary-action) 10%, var(--card)); color: var(--primary-action); font-weight: 600;
+}
+.screen-overview-count { color: var(--muted-foreground); font-size: 10px; font-variant-numeric: tabular-nums; }
+.screen-overview-toggle.active .screen-overview-count { color: inherit; }
+.screen-overview-alert { padding: 0 5px; border-radius: 999px; background: #fee2e2; color: #b91c1c; font-size: 9px; font-weight: 700; }
+/* An unchecked screen must not look like a clean one, so 未检测 gets its own neutral chip rather
+   than sharing the green pass badge or showing a bare 0. */
+.screen-tab-badge.pending { background: var(--muted); color: var(--muted-foreground); }
+.screen-tab-badge.review { background: #fef3c7; color: #b45309; }
+.screen-tab.state-running { border-color: color-mix(in oklab, var(--primary-action) 45%, var(--border)); }
+.screen-tab.state-failed { border-color: #fecaca; }
+.screen-tab.state-blocking { border-color: color-mix(in oklab, #f87171 40%, var(--border)); }
+
+/* Project overview */
+.overview-layer {
+  position: fixed; z-index: 80; inset: 0; display: flex; align-items: flex-start; justify-content: center;
+  padding: 64px 24px 24px; background: #10131b52; backdrop-filter: blur(2px);
+}
+.overview-panel {
+  display: flex; width: min(1120px, 100%); max-height: 100%; flex-direction: column;
+  border: 1px solid var(--border); border-radius: 16px; background: var(--background); box-shadow: 0 24px 64px #10131b2e; overflow: hidden;
+}
+.overview-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 16px 18px 12px; }
+.overview-verdict { display: grid; gap: 4px; }
+.overview-state { font-size: 15px; }
+.overview-state.incomplete { color: #b45309; }
+.overview-state.blocking { color: #b91c1c; }
+.overview-state.review { color: #b45309; }
+.overview-state.passed { color: #15803d; }
+.overview-state.empty { color: var(--muted-foreground); }
+.overview-coverage { color: var(--muted-foreground); font-size: 11px; }
+.overview-coverage b { color: var(--foreground); font-variant-numeric: tabular-nums; }
+/* JSX collapses the whitespace between adjacent expressions, so the leading `·` of each clause ran
+   straight into the previous number. Space them here rather than smuggling in `&nbsp;`. */
+.overview-coverage em, .overview-coverage i { margin-left: 5px; font-style: normal; }
+.overview-head-actions { display: flex; flex: none; align-items: center; gap: 8px; }
+.overview-close {
+  display: grid; width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card); color: var(--muted-foreground); cursor: pointer; place-items: center;
+}
+.overview-close:hover { color: var(--foreground); }
+.overview-filters { display: flex; gap: 6px; padding: 0 18px 12px; overflow-x: auto; scrollbar-width: none; }
+.overview-filters::-webkit-scrollbar { width: 0; height: 0; }
+.overview-filter {
+  display: flex; flex: none; align-items: center; gap: 5px; padding: 4px 10px; border: 1px solid var(--border);
+  border-radius: 999px; background: var(--card); color: var(--muted-foreground); cursor: pointer; font-size: 11px;
+}
+.overview-filter span { color: var(--muted-foreground); font-size: 10px; font-variant-numeric: tabular-nums; }
+.overview-filter.active {
+  border-color: color-mix(in oklab, var(--primary-action) 45%, var(--border));
+  background: color-mix(in oklab, var(--primary-action) 10%, var(--card)); color: var(--primary-action); font-weight: 600;
+}
+.overview-filter.active span { color: inherit; }
+.overview-grid {
+  display: grid; gap: 10px; padding: 0 18px 18px; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+  overflow-y: auto; align-content: start;
+}
+.overview-card { border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; }
+.overview-card.current { border-color: var(--primary-action); box-shadow: 0 0 0 1px var(--primary-action) inset; }
+.overview-card.state-failed { border-color: #fecaca; }
+.overview-card.state-blocking { border-color: color-mix(in oklab, #f87171 40%, var(--border)); }
+.overview-card-open {
+  display: grid; width: 100%; gap: 8px; padding: 10px; border: 0; background: 0 0; cursor: pointer; text-align: left;
+}
+.overview-card-open:hover { background: color-mix(in oklab, var(--primary-action) 5%, transparent); }
+/* Fixed 16:10 so a long design and a phone screenshot land in the same grid rhythm; the image is
+   top-anchored because the header is what identifies a screen at thumbnail size. */
+.overview-thumb {
+  display: block; position: relative; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--muted); aspect-ratio: 16 / 10; overflow: hidden;
+}
+.overview-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.overview-thumb-empty { display: grid; width: 100%; height: 100%; color: var(--muted-foreground); font-size: 10px; place-items: center; }
+.overview-card-title { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.overview-card-title b { flex: none; color: var(--muted-foreground); font-size: 10px; }
+.overview-card-name { overflow: hidden; color: var(--foreground); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.overview-card-state { display: flex; flex-wrap: wrap; gap: 4px; }
+.overview-card-state em { padding: 1px 6px; border-radius: 999px; font-size: 10px; font-style: normal; font-weight: 700; }
+.overview-card-state .p0, .overview-card-state .failed { background: #fee2e2; color: #b91c1c; }
+.overview-card-state .p1 { background: #fef3c7; color: #b45309; }
+.overview-card-state .p2 { background: var(--muted); color: var(--muted-foreground); }
+.overview-card-state .clean { background: #dcfce7; color: #15803d; }
+.overview-card-state .pending, .overview-card-state .ignored { background: var(--muted); color: var(--muted-foreground); }
+.overview-card-state .running { background: color-mix(in oklab, var(--primary-action) 14%, transparent); color: var(--primary-action); }
+.overview-recover { border-top: 1px solid var(--border); padding: 9px 10px 10px; background: color-mix(in oklab, #fee2e2 26%, var(--card)); }
+.overview-recover p { margin: 0 0 8px; color: #7f1d1d; font-size: 10.5px; line-height: 1.5; }
+.overview-recover-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.overview-recover-actions button { min-height: 26px; padding: 0 9px; font-size: 11px; }
+.overview-swap { display: grid; gap: 3px; font-size: 10px; }
+.overview-swap span { color: var(--muted-foreground); }
+.overview-swap select {
+  max-width: 168px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 7px;
+  background: var(--card); color: var(--foreground); font-size: 11px;
+}
+.overview-detail { margin-top: 8px; }
+.overview-detail summary { color: var(--muted-foreground); cursor: pointer; font-size: 10px; }
+.overview-detail code { display: block; margin-top: 5px; color: var(--muted-foreground); font-size: 10px; line-height: 1.5; word-break: break-word; }
+
+/* The strip itself no longer scrolls — only the tab track inside it does, so the 总览 entry stays
+   pinned at the left edge instead of sliding away with the tabs. */
+.editor-grid .screen-switcher, .screen-switcher { align-items: center; overflow: hidden; }
+.screen-switcher-tabs { min-width: 0; }
+
+/* Long-design stitch offer, above the pairing rows because it changes what those rows are. */
+.stitch-offer {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 0 0 10px;
+  border: 1px solid color-mix(in oklab, var(--primary-action) 34%, var(--border)); border-radius: 12px;
+  padding: 11px 12px 11px 14px; background: color-mix(in oklab, var(--primary-action) 7%, var(--card));
+}
+.stitch-offer.is-failed { border-color: #fecaca; background: color-mix(in oklab, #fee2e2 34%, var(--card)); }
+.stitch-offer-copy { display: grid; gap: 3px; }
+.stitch-offer-copy strong { font-size: 12.5px; }
+.stitch-offer-copy span { color: var(--muted-foreground); font-size: 11px; line-height: 1.6; }
+.stitch-offer.is-failed .stitch-offer-copy span { color: #7f1d1d; }
+.stitch-offer button { flex: none; }
+.stitch-result {
+  margin: 0 0 10px; border-radius: 10px; padding: 8px 12px; background: #dcfce7; color: #15803d;
+  font-size: 11px; line-height: 1.6;
+}
+
+/* Issue-list empty states. Each one says why the list is empty, because "empty" and "nothing wrong"
+   are different facts and the reviewer cannot tell them apart from a blank panel. */
+.empty-list.is-blocked {
+  border-color: #fecaca; background: color-mix(in oklab, #fee2e2 30%, var(--card)); color: #7f1d1d;
+}
+.empty-list.is-blocked strong { color: #b91c1c; }
+.empty-list .blocked-reason { color: #7f1d1d; font-size: 11px; line-height: 1.65; }
+.empty-list .blocked-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
+.empty-list .blocked-actions button { min-height: 28px; padding: 0 10px; font-size: 11px; }
+/* A clean result is the model's finding, not the reviewer's sign-off, so it is stated more quietly
+   than the old full-green panel that read as "passed". */
+.empty-list.is-clean strong { color: #15803d; }
+
+/* Explanatory fields open at a readable height and scroll internally; the reviewer resizes them by
+   hand. They deliberately do not auto-grow, and there is no expand-full-text action — the styles for
+   that action were left behind when it was removed and are dropped here so the stylesheet does not
+   imply a control that no longer exists. */
+.issue-edit-field textarea { height: 60px; min-height: 45px; overflow: auto; resize: vertical; }
+
+/* Rail width handle, on the edge that faces the canvas. */
+/* Stays inside the rail. Straddling the edge (`left: -3px`) put a 3px-wide invisible strip at
+   z-index 4 over the canvas, and the rail floats above the canvas, so a click landing in that strip
+   hit the handle and silently did nothing. Narrow, but it is the column right where a reviewer aims
+   at content near the panel edge. The strip is still wide enough to grab and now sits in the rail's
+   own padding instead of over the canvas. */
+.rail-resize {
+  position: absolute; z-index: 4; top: 0; left: 0; bottom: 0; width: 10px; cursor: col-resize;
+  background: 0 0; touch-action: none;
+}
+.rail-resize::after {
+  content: ""; position: absolute; top: 50%; left: 3px; width: 3px; height: 34px; margin-top: -17px;
+  border-radius: 999px; background: var(--border); opacity: 0; transition: opacity .15s ease;
+}
+.rail-resize:hover::after, body.is-resizing-rail .rail-resize::after { opacity: 1; }
+.issue-rail.is-collapsed .rail-resize { display: none; }
+/* While dragging, nothing else should take the pointer or start selecting text. */
+body.is-resizing-rail { cursor: col-resize; user-select: none; }
+body.is-resizing-rail .canvas-stage { pointer-events: none; }
+/* The width animation is for the collapse toggle; during a drag it lags the pointer. */
+body.is-resizing-rail .editor-grid > .issue-rail { transition: none; }
+
+/* A non-canonical category the model volunteered, kept beside the normalized badge. */
+.issue-subtype { color: var(--muted-foreground); font-size: 9px; }
+
+/* Batch pairing: one preview per source, named choices, stable global actions. */
+.pairing-panel { width: min(1100px, 96vw); gap: 14px; padding: 22px; }
+.pairing-panel .pairing-header { align-items: center; }
+.pairing-panel .pairing-header strong { font-size: 17px; }
+.pairing-panel .pairing-header > div { gap: 6px; }
+.pairing-panel .pairing-close { flex: none; width: 32px; height: 32px; align-self: flex-start; }
+.pairing-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.pairing-tabs { display: flex; gap: 4px; }
+.pairing-tabs button { display: flex; gap: 8px; align-items: center; border: 0; border-radius: 7px; padding: 8px 12px; background: transparent; color: var(--muted-foreground); cursor: pointer; font-size: 12px; }
+.pairing-tabs button[aria-selected="true"] { background: color-mix(in oklab, var(--primary) 9%, var(--card)); color: var(--primary); font-weight: 600; }
+.pairing-tabs span { font-size: 11px; font-variant-numeric: tabular-nums; }
+.pairing-add-actions { display: flex; gap: 8px; }
+.pairing-add-actions .pairing-repick { min-height: 32px; color: var(--foreground); }
+.pairing-list { max-height: min(62vh, 720px); min-height: 110px; }
+.pairing-row { padding: 12px 16px; }
+.pairing-row.state-review, .pairing-row.state-broken { background: var(--card); }
+.pairing-row-head { margin-bottom: 6px; }
+.pairing-row-number { font-size: 11px; color: var(--muted-foreground); }
+.pairing-row-body { grid-template-columns: minmax(0,1fr) 108px minmax(0,1fr); gap: 20px; }
+.pairing-row-body > figure > figcaption { display: grid; grid-template-columns: minmax(0,1fr) auto; overflow: visible; align-items: center; }
+.pairing-thumb { height: 132px; display: flex; justify-content: center; }
+.pairing-row-body .pairing-thumb img { max-height: 132px; object-fit: contain; }
+.pairing-match { display: grid; justify-items: center; gap: 4px; padding: 8px 12px; }
+.pairing-match b { font-size: 18px; }
+.pairing-match span { font-size: 11px; }
+.pairing-link-line { min-height: 12px; }
+.pairing-row .thumb-picker-trigger { min-height: 34px; padding: 6px 9px; font-size: 11px; }
+.pairing-reason { margin-top: 8px; padding: 6px 9px; }
+.pairing-alt-hint { margin-top: 0; }
+.pairing-filter-empty { padding: 40px 12px; text-align: center; color: var(--muted-foreground); font-size: 13px; }
+.file-picker-popover { position: fixed; z-index: 10020; display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: 0 16px 48px #0003; overflow: hidden; }
+.file-picker-header { display: flex; align-items: center; gap: 8px; padding: 10px; border-bottom: 1px solid var(--border); }
+.file-picker-header input { flex: 1; min-width: 0; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--background); font-size: 12px; }
+.file-picker-header button { display: grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; }
+.file-picker-body { display: grid; grid-template-columns: minmax(0,1fr) 230px; flex: 1; min-height: 0; }
+.file-picker-list { overflow: auto; padding: 6px; }
+.file-picker-option { display: flex; width: 100%; align-items: center; gap: 6px; min-height: 36px; padding: 8px; border: 0; border-radius: 6px; background: transparent; text-align: left; font-size: 12px; cursor: pointer; }
+.file-picker-option > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-picker-option small { flex: none; color: var(--primary); }
+.file-picker-option:hover, .file-picker-option:focus-visible { background: var(--muted); }
+.file-picker-option.selected { background: color-mix(in oklab, var(--primary) 10%, var(--card)); }
+.file-picker-preview { margin: 0; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 12px; border-left: 1px solid var(--border); background: var(--muted); }
+.file-picker-preview img { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+.file-picker-preview figcaption { width: 100%; overflow-wrap: anywhere; text-align: center; font-size: 11px; }
+.file-picker-preview small, .file-picker-empty { font-size: 10px; color: var(--muted-foreground); }
+.pairing-tabs button:focus-visible, .pairing-repick:focus-within, .thumb-picker-trigger:focus-visible, .file-picker-option:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+@media (max-width: 650px) { .pairing-panel { padding: 14px; } .pairing-row-body { gap: 8px; grid-template-columns: minmax(0,1fr) 72px minmax(0,1fr); } .pairing-row-body > figure > figcaption { grid-template-columns: minmax(0,1fr); } .file-picker-body { grid-template-columns: minmax(0,1fr) 42%; } .pairing-footer { align-items: flex-start; } }
+
+/* Match details reuse the root-layer hover/focus tooltip; replacement lives on each image. */
+button.pairing-match { border: 0; font-family: inherit; cursor: help; }
+button.pairing-match:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+.pairing-image-actions { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; background:#10131baa; border-radius:6px; opacity:0; transition:opacity .15s; }
+.pairing-thumb:hover .pairing-image-actions, .pairing-thumb:focus-within .pairing-image-actions { opacity:1; }
+.pairing-image-actions button, .pairing-image-upload { position:relative; border:1px solid #ffffff70; border-radius:6px; padding:5px 10px; background:#ffffff20; color:white; font-size:11px; cursor:pointer; }
+.pairing-image-upload input { position:absolute; inset:0; width:100%; opacity:0; cursor:pointer; }
+.pairing-row:focus { outline:2px solid var(--primary); outline-offset:2px; }
+
+/* Filename menu and full-height preview are separate root-layer surfaces. */
+.file-picker-body { display:block; overflow:hidden; }
+.file-picker-list { height:100%; }
+.file-picker-large-preview { position:fixed; z-index:10021; margin:0; display:flex; flex-direction:column; align-items:center; gap:8px; padding:14px; background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 16px 48px #0003; pointer-events:none; }
+.file-picker-large-preview img { width:100%; flex:1; min-height:0; object-fit:contain; }
+.file-picker-large-preview figcaption { max-width:100%; font-size:12px; overflow-wrap:anywhere; text-align:center; }
+.file-picker-large-preview small { font-size:11px; color:var(--muted-foreground); }
+
+.file-picker-option .candidate-match { margin-left:auto; flex:none; font-variant-numeric:tabular-nums; color:var(--muted-foreground); font-weight:600; padding-left:8px; }
+
+/* Intake is a click-open modal; history retains its rail flyout. */
+.intake-modal-backdrop { position:fixed; inset:0; z-index:9997; display:grid; place-items:center; padding:24px; background:#10131b70; }
+.intake-modal-panel { width:min(660px,100%); max-height:calc(100vh - 48px); overflow:auto; padding:24px; border:1px solid var(--border); border-radius:16px; background:var(--background); box-shadow:0 24px 64px #10131b40; }
+.intake-modal-header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px; }
+.intake-modal-header > div { display:grid; gap:7px; }
+.intake-modal-header strong { font-size:18px; }
+.intake-modal-header span { font-size:12px; color:var(--muted-foreground); }
+.intake-modal-header button { display:grid; place-items:center; width:32px; height:32px; background:transparent; border:0; border-radius:7px; cursor:pointer; }
+.intake-modal-header button:hover { background:var(--muted); }
+.intake-modal-panel .rail-flyout-scroll { max-height:none; overflow:visible; padding:0; }
+.intake-modal-panel .intake-zones { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+/* The card owns the height and centres its whole content group — label, hint and the secondary
+   source button together. Height used to sit on the trigger, which left the content top-aligned and
+   made the screenshot slot's text hang above the design slot's. The trigger keeps a full-card hit
+   area through a stretched ::after so the padding, and the space around the Figma button, still open
+   the file picker; the footer sits above that overlay so its button stays clickable. */
+.intake-modal-panel .drop-zone { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; min-height:155px; padding:14px 12px; }
+.intake-modal-panel .drop-zone-trigger { min-height:0; width:100%; padding:0; }
+.intake-modal-panel .drop-zone-trigger::after { content:""; position:absolute; inset:0; border-radius:inherit; }
+.intake-modal-panel .drop-zone-footer { position:relative; z-index:1; padding:0; }
+.intake-modal-panel .rail-flyout-foot { margin-top:20px; padding:14px 0 0; }
+.intake-modal-panel .source-mode-tabs { margin-bottom:16px; }
+@media(max-width:540px) { .intake-modal-panel .intake-zones { grid-template-columns:1fr; } .intake-modal-panel .drop-zone { min-height:110px; } }
+
+.annotated-frame.is-processing::after { content:""; position:absolute; inset:0; z-index:12; pointer-events:none; border-radius:inherit; border:1px solid #3b82f655; background:linear-gradient(180deg,transparent 38%,#60a5fa08 44%,#60a5fa38 49.5%,#93c5fd88 50%,#60a5fa15 53%,transparent 62%); background-size:100% 300%; animation:evidence-processing-sweep 3.2s ease-in-out infinite; }
+@keyframes evidence-processing-sweep { 0% { background-position:0 100%; } 100% { background-position:0 0%; } }
+.detection-toast-content { display:flex; align-items:center; gap:14px; max-width:min(720px,calc(100vw - 48px)); }
+.detection-toast-content > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.detection-toast-content > strong { flex:none; font-variant-numeric:tabular-nums; }
+@media(prefers-reduced-motion:reduce) { .annotated-frame.is-processing::after { animation:none; background:none; border:2px solid #60a5fa80; } }
+
+.pairing-panel { width:min(940px,96vw); }
+
+.evidence-processing-status { position:absolute; top:12px; left:50%; transform:translateX(-50%); z-index:14; display:flex; gap:10px; align-items:center; max-width:calc(100% - 20px); padding:7px 12px; border:1px solid #ffffffa0; border-radius:999px; background:#fffffff0; color:#1d4ed8; box-shadow:0 3px 14px #0002; font:600 12px/1.4 system-ui,sans-serif; white-space:nowrap; pointer-events:none; }
+.evidence-processing-status strong { font-variant-numeric:tabular-nums; }
+
+
+/* Compact dark progress toast centered within each image. */
+.evidence-processing-status { top:50%; left:50%; transform:translate(-50%,-50%); flex-direction:row; gap:6px; padding:9px 14px; border:0; border-radius:8px; background:rgba(0,0,0,.76); color:#fff; box-shadow:none; text-align:center; }
+.evidence-processing-status > span, .evidence-processing-status > strong { font-size:13px; font-weight:500; line-height:1.4; letter-spacing:0; color:inherit; }
+
+/* Multi-page board: fixed page geometry inside one shared zoom transform. */
+.multi-canvas-surface { position:relative; max-width:none!important; min-width:0!important; transition:none!important; }
+.multi-canvas-board { position:absolute; top:0; left:0; transform-origin:0 0; }
+.canvas-page-group { position:absolute; padding:16px; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:14px; background:#ffffffa0; }
+.canvas-page-group.is-active { border-color:#2563eb; box-shadow:0 0 0 2px #2563eb22; }
+.canvas-page-group > header { height:30px; display:flex; align-items:center; }
+.canvas-page-group > header > button { background:none; border:0; padding:0; font-size:16px; font-weight:650; cursor:pointer; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.canvas-page-state { height:22px; font-size:12px; color:#64748b; }
+.canvas-page-group .dual-annotation-view { display:grid; width:100%; grid-template-columns:414px 414px; gap:24px; align-items:start; }
+.canvas-page-group .annotation-panel { width:414px; min-width:0; }
+.canvas-page-group .annotated-frame { width:414px; }
+.canvas-page-group .annotated-frame > img { display:block; width:414px; max-width:none; height:auto; }
+.canvas-page-group .annotation-panel > figcaption { height:22px; overflow:hidden; white-space:nowrap; }
+.canvas-page-group .evidence-hint { display:none; }
+.canvas-page-placeholder { padding:30px; color:#94a3b8; font-size:16px; }
+.page-export-button { width:100%; margin:4px 0 8px; }
+.page-export-dialog { width:min(460px,100%); padding:24px; border-radius:14px; background:var(--background); display:grid; gap:16px; }
+.page-export-dialog header { display:flex; justify-content:space-between; align-items:center; }
+.page-export-dialog header button { border:0; background:none; cursor:pointer; }
+.page-export-dialog fieldset { display:flex; flex-wrap:wrap; gap:14px; padding:10px; border:1px solid var(--border); border-radius:8px; }
+.page-export-dialog legend { font-size:12px; color:var(--muted-foreground); }
+.page-export-dialog label { display:flex; align-items:center; gap:5px; font-size:13px; cursor:pointer; }
+.page-export-dialog p { margin:0; font-size:12px; color:var(--muted-foreground); }
+.page-export-dialog [role="status"] { font-size:12px; }
+
+.issue-active-page{display:block;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#777;margin-top:5px}
+
+/* Allow the page label to shrink without moving the title or add action. */
+.issue-rail-header .panel-heading {flex:1;overflow:hidden;align-items:center}
+.issue-rail-header .panel-heading > strong {flex-shrink:0}
+.issue-rail-header .panel-heading > .issue-active-page {display:block;flex:1;min-width:0;max-width:none;margin:0;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.issue-rail-header .panel-actions {flex-shrink:0}
+
+.export-bar {grid-template-columns:minmax(0,1fr) auto}
+.export-bar > .button {min-width:84px}
+.export-bar > .button span {color:inherit;font-size:12px}
+.export-menu-dismiss {position:fixed;inset:0;z-index:119}
+.export-format-menu {position:fixed;z-index:120;width:238px;padding:6px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 40px #0002}
+.export-format-menu button {display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:8px;background:none;text-align:left;cursor:pointer;font-size:14px}
+.export-format-menu button:hover,.export-format-menu button:focus-visible {background:var(--muted)}
+.export-format-menu b {font-size:12px;width:30px;text-align:center}
+.export-format-menu small {display:block;font-size:11px;color:var(--muted-foreground);margin-top:4px}
+.page-export-dialog {width:min(840px,calc(100vw - 32px));padding:0;gap:0;max-height:calc(100vh - 40px);overflow:auto}
+.page-export-dialog > header {padding:20px 24px;border-bottom:1px solid var(--border)}
+.page-export-dialog > header strong {font-size:18px}
+.export-config-body {display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px}
+.export-source-preview {height:360px;overflow:auto;border:1px solid var(--border);border-radius:10px;background:#f6f6f8;padding:16px}
+.export-preview-group {margin-bottom:16px}
+.export-preview-group > strong {display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:10px}
+.export-preview-group > div {display:flex;justify-content:center;gap:10px}
+.export-preview-group img {width:calc(50% - 5px);height:230px;object-fit:contain;object-position:top;background:white;border-radius:4px}
+.export-config-options {display:grid;align-content:start;gap:20px}
+.page-export-dialog fieldset {border:0;padding:0;display:grid;gap:8px}
+.page-export-dialog legend {font-size:14px;font-weight:600;color:var(--foreground);margin-bottom:12px}
+.page-export-dialog label {padding:12px;border:1px solid var(--border);border-radius:8px}
+.page-export-dialog label:has(input:checked) {border-color:#2453ed;background:#eef3ff}
+.page-export-dialog input {accent-color:#2453ed}
+.page-export-dialog > footer {display:flex;justify-content:flex-end;gap:10px;padding:16px 24px;border-top:1px solid var(--border)}
+@media(max-width:640px){.export-config-body{grid-template-columns:1fr}.export-source-preview{height:180px}.export-preview-group img{height:120px}}
+
+.issue-facts .issue-edit-field.fix {margin:2px 0 0;padding:0;border-left:0;position:relative}
+.issue-facts .issue-edit-field.fix::before {content:"";position:absolute;left:-5px;top:0;bottom:0;width:2px;background:var(--issue)}
+
+.pairing-hover-trigger {border:0;padding:0;background:none;cursor:zoom-in}
+.pair-source-popover {position:fixed;z-index:10030;display:flex;gap:12px;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:0 16px 60px #0003;box-sizing:border-box}
+.pair-source-large {min-width:0;flex:1;display:flex;flex-direction:column;gap:6px;text-align:center}
+.pair-source-large img {width:100%;min-height:0;flex:1;object-fit:contain}
+.pair-source-large span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.pair-source-large small {font-size:11px;color:var(--muted-foreground)}
+.pair-source-controls {display:flex;flex-direction:column;gap:10px;justify-content:center;width:94px;flex-shrink:0}
+.pair-source-controls button,.pair-source-controls label {position:relative;display:flex;align-items:center;justify-content:center;padding:9px 8px;border:1px solid var(--border);background:var(--background);border-radius:8px;font-size:12px;cursor:pointer}
+.pair-source-controls label:focus-within,.pair-source-controls button:focus-visible {outline:2px solid var(--ring)}
+.pair-source-controls input {position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+
+.crop-lightbox-panel.pairing-panel {width:min(800px,calc(100vw - 32px));height:min(800px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);padding:24px;box-sizing:border-box;display:flex;flex-direction:column}
+.pairing-panel > .pairing-list {flex:1;min-height:0;max-height:none;align-content:start;scrollbar-gutter:auto;scrollbar-width:thin;padding-right:0;margin-right:-6px}
+.pairing-panel > .pairing-list::-webkit-scrollbar {width:6px;height:6px}
+.pairing-panel > .pairing-list::-webkit-scrollbar-track {background:transparent}
+.pairing-panel > .pairing-list::-webkit-scrollbar-thumb {background:#b8b8bc;border:1px solid transparent;background-clip:padding-box;border-radius:8px}
+.pairing-panel > .pairing-footer {justify-content:flex-end;flex-shrink:0}
+.pairing-panel > .pairing-header,.pairing-panel > .pairing-toolbar {flex-shrink:0}
+
+/* Discard confirmation. Sits over the pairing dialog rather than beside it: the question is about
+   the whole dialog, and dimming it makes clear nothing has been thrown away yet. */
+.pairing-discard {position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:24px;background:#10131b5c}
+.pairing-discard-box {position:static;width:min(320px,100%)}
+
+.intake-modal-panel .drop-zone-trigger {align-content:center;justify-items:center;gap:4px}
+.intake-modal-panel .drop-zone-trigger > * {margin:0}
+
+.pairing-toolbar > .tabs {flex:1;min-width:0}
+.pairing-toolbar > .tabs .tabs__list {width:100%}
+
+.intake-modal-panel .drop-zone.is-active {border-color:var(--border)}
+.intake-modal-panel .drop-zone:hover,.intake-modal-panel .drop-zone:has(:focus-visible) {border-color:var(--primary)}
+
+.pairing-line-tabs{display:flex;gap:22px;min-width:0;overflow-x:auto}
+.pairing-line-tabs button{display:flex;align-items:center;gap:6px;white-space:nowrap;background:none;border:0;border-bottom:2px solid transparent;padding:10px 0;color:var(--muted-foreground);font-size:13px;cursor:pointer}
+.pairing-line-tabs button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary);font-weight:600}
+.pairing-line-tabs span{font-size:11px}
+.pair-source-controls label{color:var(--foreground)}
+
+.pairing-action-thumb {position:relative;align-items:center}
+.pairing-icon-actions {position:absolute;left:50%;bottom:8px;transform:translateX(-50%);display:flex;gap:4px;padding:4px;border-radius:9px;background:#202124df;opacity:0;pointer-events:none;transition:opacity .12s}
+.pairing-action-thumb:hover .pairing-icon-actions,.pairing-action-thumb:focus-within .pairing-icon-actions {opacity:1;pointer-events:auto}
+.pairing-icon-actions button {display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:6px;background:transparent;color:#fff;cursor:pointer}
+.pairing-icon-actions button:hover,.pairing-icon-actions button:focus-visible {background:#ffffff30;outline:1px solid #ffffff80}
+.pair-image-lightbox {position:fixed;inset:0;z-index:10030;background:#10131b99;display:grid;place-items:center;padding:24px}
+/* Bounded, not viewport-filling. The viewport-relative caps alone let a tall phone screenshot push
+   this to 581x1258, taller than the window; the px cap keeps it a dialog you look into. */
+.pair-image-lightbox section {position:relative;display:flex;flex-direction:column;gap:8px;align-items:center;padding:24px;max-width:calc(100vw - 48px);max-height:min(calc(100dvh - 48px),760px);background:var(--card);border-radius:14px}
+.pair-image-lightbox section>button {position:absolute;right:8px;top:8px;display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:6px;background:var(--card);cursor:pointer}
+.pair-image-lightbox img {max-width:min(620px,calc(100vw - 96px));max-height:min(calc(100dvh - 164px),640px);object-fit:contain}
+.pair-image-lightbox span {max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px}
+.pair-image-lightbox small {color:var(--muted-foreground);font-size:11px}
+
+.canvas-page-group > header {justify-content:space-between;gap:16px}
+.canvas-page-group > header > button {min-width:0}
+.group-processing-status {display:flex;align-items:center;gap:6px;flex-shrink:0;background:#202124e6;color:#fff;border-radius:7px;padding:6px 10px;font-size:12px;white-space:nowrap;pointer-events:none}
+.group-processing-status strong {font-size:16px;font-variant-numeric:tabular-nums}
+.zoom-surface:has(> .group-processing-status) {position:relative}
+.zoom-surface > .group-processing-status {position:absolute;right:0;top:-40px}
+
+.canvas-page-group.is-active {z-index:2}
+.canvas-group-actions {position:absolute;left:50%;bottom:calc(100% + 12px);transform-origin:center bottom;display:flex;gap:4px;padding:6px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 6px 24px #0002;white-space:nowrap}
+.canvas-group-actions label,.canvas-group-actions button {position:relative;display:flex;align-items:center;gap:6px;border:0;padding:8px 10px;background:transparent;border-radius:6px;font-size:12px;cursor:pointer}
+.canvas-group-actions label:hover,.canvas-group-actions button:hover {background:var(--muted)}
+.canvas-group-actions input {position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.canvas-group-actions .is-disabled,.canvas-group-actions button:disabled {opacity:.45;cursor:default}
+.canvas-group-actions label:focus-within,.canvas-group-actions button:focus-visible {outline:2px solid var(--ring)}
+
+.zoom-surface:has(> .canvas-group-actions) {position:relative}
+
+.save-unavailable {opacity:.45;cursor:not-allowed}
+
+.canvas-group-actions label,.canvas-group-actions button {width:34px;height:34px;padding:8px;justify-content:center;box-sizing:border-box}
+
+.overview-block-reason {display:block;font-size:11px;line-height:1.5;color:#a33a32;text-align:left;overflow-wrap:anywhere}
+
+.annotation-panel figcaption .evidence-kind{flex-shrink:0;white-space:nowrap}
+.annotation-panel figcaption .evidence-file-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.canvas-selection-rect{position:fixed;z-index:10040;border:1px solid #2453ed;background:#2453ed18;pointer-events:none}
+.selected-group-issues>h3{position:sticky;top:0;z-index:2;background:var(--card);padding:10px 4px;font-size:12px;overflow-wrap:anywhere;border-bottom:1px solid var(--border)}
+.selected-group-issues h3 small{margin-left:8px;color:var(--muted-foreground)}
+.selected-group-issues .issue-card{margin-bottom:10px}
+.multi-issue-title{border:0;background:none;padding:8px 0;text-align:left;font-size:13px;font-weight:600;cursor:pointer}
+.selected-group-issues .issue-facts p{font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.selected-group-issues .issue-facts b{display:block;color:var(--foreground)}
+.canvas-group-actions input[hidden]{display:none}
+
+.canvas-add-slot{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:2px dashed #c5c8cf;background:#ffffff65;border-radius:14px;color:#727781;font-size:18px;cursor:pointer}
+.canvas-add-slot:hover{border-color:#2453ed;color:#2453ed;background:#f6f8ff}
+.new-group-zones{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.new-group-zones label{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:190px;padding:16px;border:1px dashed var(--border);border-radius:10px;cursor:pointer}
+.new-group-zones input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.new-group-zones img{max-width:100%;height:130px;object-fit:contain}
+.new-group-zones small{font-size:11px;color:var(--muted-foreground)}
+
+.selected-group-issues .issue-crops{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.selected-group-issues .issue-crops figure{margin:0;min-width:0;background:#f6f6f7;border-radius:7px;padding:6px}
+.selected-group-issues .issue-crops figcaption{font-size:10px;margin-bottom:4px}
+
+
+.selected-group-issues>h3{position:static;margin:0 0 10px;padding:8px 0;font-size:12px;line-height:1.5;border-bottom:1px solid var(--border)}
+.selected-group-issues{min-width:0}
+.selected-group-issues + .selected-group-issues {margin-top:24px;padding-top:20px;border-top:2px solid var(--border)}
+.selected-group-issues > h3 {display:flex;align-items:center;gap:10px;background:var(--muted);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin:0 0 14px;font-weight:600;overflow-wrap:anywhere}
+.selected-group-issues > h3 small {margin-left:auto;flex-shrink:0;font-weight:400;white-space:nowrap}
+
+.new-canvas-group-dialog .new-group-zones{margin:0;gap:16px}
+.new-canvas-group-dialog .new-group-zones label{min-height:155px;gap:4px;padding:14px 12px}
+.new-canvas-group-dialog .new-group-zones label>svg{display:none}
+.new-canvas-group-dialog .new-group-zones strong{font-size:13px}
+.new-group-footer{display:flex;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+@media(max-width:540px){.new-group-zones{grid-template-columns:1fr}.new-canvas-group-dialog .new-group-zones label{min-height:110px}}
+
+.group-rerun-popover{position:fixed;z-index:1600;width:288px;max-width:calc(100vw - 24px);padding:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 28px #0002}
+.group-rerun-popover>strong{font-size:13px}
+.group-rerun-popover>p{font-size:12px;line-height:1.5;color:var(--muted-foreground);margin:8px 0 12px}
+.group-rerun-popover>div{display:flex;justify-content:flex-end;gap:6px}
+
+.queue-status{font-size:12px;color:#1d4ed8;background:#eff6ff;border-radius:6px;padding:4px 8px;white-space:nowrap;}
+
+.queue-status{display:inline-flex;align-items:center;gap:4px;}
+.canvas-page-group header .queue-cancel{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;min-width:22px;padding:0;border:0;border-radius:4px;background:transparent;color:inherit;cursor:pointer;}
+.canvas-page-group header .queue-cancel:hover{background:#dbeafe;}
+.canvas-page-group header .queue-cancel:focus-visible{outline:2px solid #2563eb;outline-offset:2px;}
+
+/* Secondary source inside a drop zone. The design slot uses it for Figma; it reads as subordinate to
+   the zone's own click/drag/paste affordance rather than as a competing top-level mode. */
+.drop-zone-footer { padding: 0 12px 14px; text-align: center; }
+/* A small outlined button sitting under the zone's own hint line, not a separate footer band: the
+   secondary source belongs to this slot and should read as one more thing you can do here. */
+.figma-entry {
+  border: 1px solid var(--border); border-radius: 999px; background: var(--background);
+  color: var(--foreground); cursor: pointer; font-size: 10.5px; padding: 3px 11px;
+}
+.figma-entry:hover { border-color: var(--primary-action); background: var(--muted); }
+.figma-entry:focus-visible { outline: 2px solid var(--primary-action); outline-offset: 2px; }
+
+/* The Figma form as a popover anchored to that entry. Fixed, so it can extend past the dialog instead
+   of forcing the dialog 230px taller the way the old tab did. */
+.figma-popover {
+  position: fixed; z-index: 9999; width: 320px; max-height: min(70vh, 520px); overflow-y: auto;
+  border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px 14px;
+  background: var(--card); box-shadow: 0 18px 44px #10131b2e;
+}
+.figma-popover-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+.figma-popover-head strong { font-size: 12.5px; }
+.figma-popover-head button {
+  display: grid; width: 24px; height: 24px; border: 0; border-radius: 7px; background: 0 0;
+  color: var(--muted-foreground); cursor: pointer; place-items: center;
+}
+.figma-popover-head button:hover { background: var(--muted); color: var(--foreground); }

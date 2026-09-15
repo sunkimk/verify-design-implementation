@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {rankCandidates} from '../assets/shadcn-review-app/src/lib/candidate-ranking.mjs';
+const items=[10,90,40,70,80,60,20].map((score,i)=>({name:String(i),score}));
+const ranked=rankCandidates(items,{},item=>item.score/100);
+assert.deepEqual(ranked.map(row=>row.item.score),[90,80,70,60,40,10,20]);
+assert.deepEqual(ranked.map(row=>row.percent),[90,80,70,60,40,null,null]);
+assert.equal(rankCandidates(items,null,()=>1).filter(row=>row.percent!==null).length,0);
+assert.deepEqual(items.map(x=>x.score),[10,90,40,70,80,60,20]);
+assert.deepEqual(rankCandidates(items,{},()=>NaN).map(row=>row.percent),items.map(()=>null));
+assert.equal(rankCandidates(items.slice(0,2),{},()=>.8).length,2);
+console.log('Top-five ordering, badges, absent evidence, invalid scores and non-mutation pass.');

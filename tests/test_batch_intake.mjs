@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {mergeDraftSources} from '../assets/shadcn-review-app/src/lib/batch-intake.mjs';
+const initial={designs:[{name:'B'}],implementations:[{name:'shot'}],overrides:{B:'shot'},skipped:{B:true}};
+const append=mergeDraftSources(initial,'design',[{name:'A'}],true);
+assert.deepEqual(append.designs.map(x=>x.name),['A','B']);
+assert.deepEqual(append.overrides,{B:'shot'});assert.deepEqual(append.skipped,{B:true});
+assert.equal(initial.designs.length,1);
+const replace=mergeDraftSources(initial,'design',[{name:'A'}],false);
+assert.deepEqual(replace.designs.map(x=>x.name),['A']);assert.deepEqual(replace.overrides,{});
+assert.equal(replace.implementations[0].name,'shot');
+console.log('Batch append preserves assignments; replacement resets them; source input unchanged.');

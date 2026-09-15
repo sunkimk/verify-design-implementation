@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {autoConfirmsPair,sortPairRows} from '../assets/shadcn-review-app/src/lib/pairing-policy.mjs';
+assert.equal(autoConfirmsPair({match:89}),false);
+assert.equal(autoConfirmsPair({match:90}),true);
+assert.equal(autoConfirmsPair({match:97,needsConfirmation:true}),false);
+assert.equal(autoConfirmsPair({}),false);
+const rows=[{key:'a',quality:{match:78}},{key:'empty',quality:{}},{key:'b',quality:{match:96}},{key:'c',quality:{match:96}}];
+assert.deepEqual(sortPairRows(rows).map(x=>x.key),['b','c','a','empty']);assert.equal(rows[0].key,'a');
+console.log('90% boundary, manual revocation, stable descending order and empty-last pass.');
+const {canRunPair} = await import('../assets/shadcn-review-app/src/lib/pairing-policy.mjs');
+const complete={design:{},implementation:{}};
+assert.equal(canRunPair(complete,{state:'ready'}),true);
+assert.equal(canRunPair(complete,{state:'review'}),false);
+assert.equal(canRunPair(complete,{state:'broken'}),false);
+assert.equal(canRunPair(complete,{state:'ready'},true),false);
+assert.equal(canRunPair({design:{}},{state:'ready'}),false);
+console.log('Only complete, ready, non-ignored pairs enter detection.');

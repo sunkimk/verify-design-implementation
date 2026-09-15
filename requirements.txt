@@ -1,0 +1,6 @@
+# 只有 scripts/visual_diff.py（本地像素预扫描）需要这三个包。
+# 工作台本身和 scripts/start_workbench.mjs 只依赖 Node，不需要任何 Python 包。
+# scripts/validate_acceptance_report.py 只用标准库。
+opencv-python>=4.9
+numpy>=1.26
+pillow>=10.2

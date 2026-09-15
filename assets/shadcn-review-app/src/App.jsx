@@ -5313,7 +5313,7 @@ ${issueSections}
                 dismissal is the same key as the toast, so acknowledging it once is enough. */}
             {!multiSelection && activeScreen.status === "failed" && !dismissedFailures[failureKey] && (
               <div className="issue-list-failed-note" role="status">
-                <span>
+                <span title={`${activeFailure.advice}\n\n${activeScreen.error || ""}`}>
                   <strong>AI 检测未成功</strong>：{activeFailure.title}。
                   {issueListState === "list" ? "下面是你手动记录的问题，不是 AI 的检测结果。" : "可以直接手动记录问题。"}
                 </span>
@@ -5432,8 +5432,9 @@ ${issueSections}
                   <span>结果会在完成后直接出现在这里。</span>
                 </div>
               ) : issueListState === "failed" ? (
-                /* The reason lives in the banner above (and in the 总览 card's 技术详情). What is left
-                   to say here is only what this empty list means and what the reviewer can do next. */
+                /* The reason lives in the banner above, whose hover text also carries the provider's
+                   raw reply. What is left to say here is only what this empty list means and what
+                   the reviewer can do next. */
                 <div className="empty-list is-idle">
                   <strong>这一屏 AI 没检测成功</strong>
                   <span>可以直接用「＋ 新增」手动记录问题，导出照样带上。</span>
